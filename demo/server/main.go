@@ -1,11 +1,8 @@
 package main
 
-import (
-	"context"
-	"testing"
-)
+import "context"
 
-func TestServer(t *testing.T) {
+func main() {
 	if err := RunServerStart(context.Background(), &ServerStartOptions{
 		id:     "1",
 		listen: ":8080",

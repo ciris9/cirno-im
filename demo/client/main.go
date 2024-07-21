@@ -1,11 +1,8 @@
 package main
 
-import (
-	"context"
-	"testing"
-)
+import "context"
 
-func TestClient(t *testing.T) {
+func main() {
 	if err := run(context.Background(), &StartOptions{
 		address: "ws://127.0.0.1:8080",
 		user:    "dajiang",

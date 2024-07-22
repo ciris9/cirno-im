@@ -24,13 +24,15 @@ func connect(addr string) (*handler, error) {
 	}
 
 	h := handler{
-		conn:  conn,
-		close: make(chan struct{}, 1),
-		recv:  make(chan []byte, 10),
+		conn:      conn,
+		close:     make(chan struct{}, 1),
+		recv:      make(chan []byte, 10),
+		heartbeat: time.Second * 10,
 	}
 
+	//read
 	go func() {
-		err := h.readloop(conn)
+		err := h.readLoop(conn)
 		if err != nil {
 			logrus.Warn(err)
 		}
@@ -38,21 +40,48 @@ func connect(addr string) (*handler, error) {
 		h.close <- struct{}{}
 	}()
 
+	//heartbeat
+	go func() {
+		err := h.heartBeatLoop()
+		if err != nil {
+			logrus.Warn(err)
+		}
+		h.close <- struct{}{}
+	}()
+
 	return &h, nil
 }
 
 type handler struct {
-	conn  net.Conn
-	close chan struct{}
-	recv  chan []byte
+	conn      net.Conn
+	close     chan struct{}
+	recv      chan []byte
+	heartbeat time.Duration
 }
 
-func (h *handler) readloop(conn net.Conn) error {
+func (h *handler) heartBeatLoop() error {
+	logrus.Info("heartBeatLoop start")
+	tick := time.NewTicker(h.heartbeat)
+	for range tick.C {
+		logrus.Info("ping")
+		if err := wsutil.WriteClientMessage(h.conn, ws.OpPing, nil); err != nil {
+			logrus.Warn(err)
+			return err
+		}
+	}
+	return nil
+}
+
+func (h *handler) readLoop(conn net.Conn) error {
 	logrus.Info("readloop started")
 	for {
 		frame, err := ws.ReadFrame(conn)
 		if err != nil {
 			return err
+		}
+		if frame.Header.OpCode == ws.OpPong {
+			_ = h.conn.SetReadDeadline(time.Now().Add(h.heartbeat * 3))
+			continue
 		}
 		if frame.Header.OpCode == ws.OpClose {
 			return errors.New("remote side close the channel")

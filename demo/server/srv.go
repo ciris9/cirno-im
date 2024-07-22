@@ -2,11 +2,14 @@ package main
 
 import (
 	"context"
+	"encoding/binary"
 	"errors"
 	"fmt"
+	"github.com/gobwas/ws/wsutil"
 	"net"
 	"net/http"
 	"sync"
+	"time"
 
 	"github.com/gobwas/ws"
 	"github.com/sirupsen/logrus"
@@ -17,7 +20,7 @@ type Server struct {
 	once    sync.Once
 	id      string
 	address string
-	sync.Mutex
+	sync.RWMutex
 	// 会话列表
 	users map[string]net.Conn
 }
@@ -69,7 +72,7 @@ func (s *Server) Start() error {
 
 		go func(user string, conn net.Conn) {
 			//step4. 读取消息
-			err := s.readloop(user, conn)
+			err := s.readLoop(user, conn)
 			if err != nil {
 				log.Error(err)
 			}
@@ -110,11 +113,17 @@ func (s *Server) Shutdown() {
 	})
 }
 
-func (s *Server) readloop(user string, conn net.Conn) error {
+func (s *Server) readLoop(user string, conn net.Conn) error {
+	readWait := time.Minute * 2
 	for {
+		_ = conn.SetReadDeadline(time.Now().Add(readWait))
 		frame, err := ws.ReadFrame(conn)
 		if err != nil {
 			return err
+		}
+		if frame.Header.OpCode == ws.OpPing {
+			_ = wsutil.WriteServerMessage(conn, ws.OpPong, nil)
+			continue
 		}
 		if frame.Header.OpCode == ws.OpClose {
 			return errors.New("remote side close the conn")
@@ -126,6 +135,10 @@ func (s *Server) readloop(user string, conn net.Conn) error {
 		// 接收文本帧内容
 		if frame.Header.OpCode == ws.OpText {
 			go s.handle(user, string(frame.Payload))
+		}
+		//处理二进制内容
+		if frame.Header.OpCode == ws.OpBinary {
+			go s.handleBinary(user, frame.Payload)
 		}
 	}
 }
@@ -163,4 +176,29 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 	server := NewServer(opts.id, opts.listen)
 	defer server.Shutdown()
 	return server.Start()
+}
+
+const (
+	CommandPing = 100
+	CommandPong = 101
+)
+
+// 自定义业务层协议
+// 消息指令 Command	消息长度 Length	消息载体 Payload
+// 2bytes	4bytes	n bytes
+func (s *Server) handleBinary(user string, message []byte) {
+	logrus.Infof("recv message %s from %s", message, user)
+	s.RLock()
+	defer s.RUnlock()
+	i := 0
+	command := binary.BigEndian.Uint16(message[i : i+2])
+	i += 2
+	payloadLen := binary.BigEndian.Uint32(message[i : i+4])
+	logrus.Infof("command: %v payloadLen: %v", command, payloadLen)
+	if command == CommandPing {
+		u := s.users[user]
+		if err := wsutil.WriteServerBinary(u, []byte{0, CommandPong, 0, 0, 0, 0}); err != nil {
+			logrus.Error(err)
+		}
+	}
 }

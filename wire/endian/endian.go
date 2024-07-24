@@ -5,7 +5,7 @@ import (
 	"io"
 )
 
-// Default 网络传输一般来讲为小端序,为了加快网络传输效率采用小端序读取写入
+// Default 网络传输一般来讲为小端序,为了加快网络传输效率采用小端序进行读写
 var Default = binary.LittleEndian
 
 func ReadUint8(r io.Reader) (uint8, error) {

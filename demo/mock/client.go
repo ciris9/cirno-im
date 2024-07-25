@@ -5,12 +5,12 @@ import (
 	"net"
 	"time"
 
+	"cirno-im"
+	"cirno-im/logger"
+	"cirno-im/tcp"
+	"cirno-im/websocket"
 	"github.com/gobwas/ws"
 	"github.com/gobwas/ws/wsutil"
-	"github.com/klintcheng/kim"
-	"github.com/klintcheng/kim/logger"
-	"github.com/klintcheng/kim/tcp"
-	"github.com/klintcheng/kim/websocket"
 )
 
 // ClientDemo Client demo
@@ -18,7 +18,7 @@ type ClientDemo struct {
 }
 
 func (c *ClientDemo) Start(userID, protocol, addr string) {
-	var cli kim.Client
+	var cli cim.Client
 
 	// step1: 初始化客户端
 	if protocol == "ws" {
@@ -56,7 +56,7 @@ func (c *ClientDemo) Start(userID, protocol, addr string) {
 			logger.Info(err)
 			break
 		}
-		if frame.GetOpCode() != kim.OpBinary {
+		if frame.GetOpCode() != cim.OpBinary {
 			continue
 		}
 		recv++
@@ -74,7 +74,7 @@ type WebsocketDialer struct {
 }
 
 // DialAndHandshake DialAndHandshake
-func (d *WebsocketDialer) DialAndHandshake(ctx kim.DialerContext) (net.Conn, error) {
+func (d *WebsocketDialer) DialAndHandshake(ctx cim.DialerContext) (net.Conn, error) {
 	// 1 调用ws.Dial拨号
 	conn, _, _, err := ws.Dial(context.TODO(), ctx.Address)
 	if err != nil {
@@ -94,7 +94,7 @@ type TCPDialer struct {
 }
 
 // DialAndHandshake DialAndHandshake
-func (d *TCPDialer) DialAndHandshake(ctx kim.DialerContext) (net.Conn, error) {
+func (d *TCPDialer) DialAndHandshake(ctx cim.DialerContext) (net.Conn, error) {
 	logger.Info("start dial: ", ctx.Address)
 	// 1 调用net.Dial拨号
 	conn, err := net.DialTimeout("tcp", ctx.Address, ctx.Timeout)
@@ -102,7 +102,7 @@ func (d *TCPDialer) DialAndHandshake(ctx kim.DialerContext) (net.Conn, error) {
 		return nil, err
 	}
 	// 2. 发送用户认证信息，示例就是userid
-	err = tcp.WriteFrame(conn, kim.OpBinary, []byte(ctx.Id))
+	err = tcp.WriteFrame(conn, cim.OpBinary, []byte(ctx.Id))
 	if err != nil {
 		return nil, err
 	}

@@ -4,17 +4,17 @@ import (
 	"errors"
 	"time"
 
-	"github.com/klintcheng/kim"
-	"github.com/klintcheng/kim/logger"
-	"github.com/klintcheng/kim/naming"
-	"github.com/klintcheng/kim/tcp"
-	"github.com/klintcheng/kim/websocket"
+	"cirno-im"
+	"cirno-im/logger"
+	"cirno-im/naming"
+	"cirno-im/tcp"
+	"cirno-im/websocket"
 )
 
 type ServerDemo struct{}
 
 func (s *ServerDemo) Start(id, protocol, addr string) {
-	var srv kim.Server
+	var srv cim.Server
 	service := &naming.DefaultService{
 		Id:       id,
 		Protocol: protocol,
@@ -43,7 +43,7 @@ type ServerHandler struct {
 }
 
 // Accept this connection
-func (h *ServerHandler) Accept(conn kim.Conn, timeout time.Duration) (string, error) {
+func (h *ServerHandler) Accept(conn cim.Conn, timeout time.Duration) (string, error) {
 	// 1. 读取：客户端发送的鉴权数据包
 	frame, err := conn.ReadFrame()
 	if err != nil {
@@ -60,13 +60,13 @@ func (h *ServerHandler) Accept(conn kim.Conn, timeout time.Duration) (string, er
 }
 
 // Receive default listener
-func (h *ServerHandler) Receive(ag kim.Agent, payload []byte) {
+func (h *ServerHandler) Receive(ag cim.Agent, payload []byte) {
 	ack := string(payload) + " from server "
 	_ = ag.Push([]byte(ack))
 }
 
-// Disconnect default listener
-func (h *ServerHandler) Disconnect(id string) error {
+// DisConnect default listener
+func (h *ServerHandler) DisConnect(id string) error {
 	logger.Warnf("disconnect %s", id)
 	return nil
 }

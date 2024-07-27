@@ -26,11 +26,10 @@ func NewChannel(id string, conn Conn) Channel {
 		"id":     id,
 	})
 	ch := &ChannelImpl{
-		Mutex:     sync.Mutex{},
 		Conn:      conn,
 		id:        id,
 		writeChan: make(chan []byte, 5),
-		once:      sync.Once{},
+		closed:    NewEvent(),
 		writeWait: constants.DefaultWriteWait,
 		readWait:  constants.DefaultReadWait,
 	}
@@ -42,6 +41,7 @@ func NewChannel(id string, conn Conn) Channel {
 	}()
 	return ch
 }
+
 func (ch *ChannelImpl) writeLoop() error {
 	for {
 		select {
@@ -56,7 +56,7 @@ func (ch *ChannelImpl) writeLoop() error {
 			chanLen := len(ch.writeChan)
 			for i := 0; i < chanLen; i++ {
 				payload = <-ch.writeChan
-				err = ch.WriteFrame(OpBinary, payload)
+				err := ch.WriteFrame(OpBinary, payload)
 				if err != nil {
 					return err
 				}

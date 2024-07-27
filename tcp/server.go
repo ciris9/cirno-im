@@ -125,6 +125,11 @@ func (s *Server) Start() error {
 				log.Warn(err3)
 			}
 		}(rawConn)
+		select {
+		case <-s.quit.Done():
+			return fmt.Errorf("listen exited")
+		default:
+		}
 	}
 }
 

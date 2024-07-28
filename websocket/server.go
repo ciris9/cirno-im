@@ -4,7 +4,6 @@ import (
 	cim "cirno-im"
 	"cirno-im/constants"
 	"cirno-im/logger"
-	"cirno-im/naming"
 	"context"
 	"errors"
 	"github.com/gobwas/ws"
@@ -28,7 +27,7 @@ type ServerOptions struct {
 
 type Server struct {
 	listen string
-	naming.ServiceRegistration
+	cim.ServiceRegistration
 	cim.ChannelMap
 	cim.Acceptor
 	cim.MessageListener
@@ -37,7 +36,7 @@ type Server struct {
 	options ServerOptions
 }
 
-func NewServer(listen string, service naming.ServiceRegistration) cim.Server {
+func NewServer(listen string, service cim.ServiceRegistration) cim.Server {
 	return &Server{
 		listen:              listen,
 		ServiceRegistration: service,

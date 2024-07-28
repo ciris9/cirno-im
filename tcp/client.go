@@ -30,10 +30,11 @@ type Client struct {
 	conn    cim.Conn
 	state   int32
 	options ClientOptions
+	Meta    map[string]string
 }
 
 // NewClient NewClient
-func NewClient(id, name string, opts ClientOptions) cim.Client {
+func NewClient(id, name string, meta map[string]string, opts ClientOptions) cim.Client {
 	if opts.WriteWait == 0 {
 		opts.WriteWait = constants.DefaultWriteWait
 	}
@@ -44,6 +45,7 @@ func NewClient(id, name string, opts ClientOptions) cim.Client {
 		id:      id,
 		name:    name,
 		options: opts,
+		Meta:    meta,
 	}
 	return cli
 }
@@ -165,3 +167,15 @@ func (c *Client) ping() error {
 	}
 	return c.conn.WriteFrame(cim.OpPing, nil)
 }
+
+// ID return id
+func (c *Client) ServiceID() string {
+	return c.id
+}
+
+// Name Name
+func (c *Client) ServiceName() string {
+	return c.name
+}
+
+func (c *Client) GetMetadata() map[string]string { return c.Meta }

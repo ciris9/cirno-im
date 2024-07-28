@@ -29,10 +29,10 @@ type Client struct {
 	conn    net.Conn
 	state   int32
 	options ClientOptions
-	dc      *cim.DialerContext
+	Meta    map[string]string
 }
 
-func NewClient(id, name string, opts ClientOptions) *Client {
+func NewClient(id, name string, meta map[string]string, opts ClientOptions) cim.Client {
 	if opts.WriteWait == 0 {
 		opts.WriteWait = constants.DefaultWriteWait
 	}
@@ -43,6 +43,7 @@ func NewClient(id, name string, opts ClientOptions) *Client {
 		id:      id,
 		name:    name,
 		options: opts,
+		Meta:    meta,
 	}
 	return client
 }
@@ -162,4 +163,18 @@ func (cli *Client) ping(conn net.Conn) error {
 	}
 	logger.Tracef("%s send ping to server", cli.id)
 	return wsutil.WriteClientMessage(conn, ws.OpPing, nil)
+}
+
+// ID return id
+func (cli *Client) ServiceID() string {
+	return cli.id
+}
+
+// Name Name
+func (cli *Client) ServiceName() string {
+	return cli.name
+}
+
+func (cli *Client) GetMetadata() map[string]string {
+	return cli.Meta
 }

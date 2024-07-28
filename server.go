@@ -6,7 +6,27 @@ import (
 	"time"
 )
 
+//服务注册
+
+type Service interface {
+	ServiceID() string
+	ServiceName() string
+	GetMetadata() map[string]string
+}
+
+type ServiceRegistration interface {
+	Service
+	PublicAddress() string
+	PublicPort() int
+	DialURL() string
+	GetProtocol() string
+	GetNamespace() string
+	GetTags() []string
+	String() string
+}
+
 type Server interface {
+	ServiceRegistration
 	SetAcceptor(Acceptor)
 	SetMessageListener(MessageListener)
 	SetStateListener(StateListener)
@@ -60,6 +80,7 @@ type Channel interface {
 }
 
 type Client interface {
+	Service
 	ID() string
 	Name() string
 	Connect(string) error

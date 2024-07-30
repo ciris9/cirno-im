@@ -5,9 +5,9 @@ import (
 	"errors"
 )
 
-var ErrSessionNil = errors.New("err:session nil")
-
 var _ SessionStorage
+
+var ErrSessionNil = errors.New("err:session nil")
 
 type SessionStorage interface {
 	Add(session *pkt.Session) error

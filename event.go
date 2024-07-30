@@ -32,3 +32,7 @@ func (e *Event) HasFired() bool {
 func NewEvent() *Event {
 	return &Event{c: make(chan struct{})}
 }
+
+func Test()  {
+
+}

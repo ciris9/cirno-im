@@ -50,6 +50,23 @@ func NewClient(id, name string, meta map[string]string, opts ClientOptions) cim.
 	return cli
 }
 
+func NewClientWithProps(id, name string, meta map[string]string, opts ClientOptions) cim.Client {
+	if opts.WriteWait == 0 {
+		opts.WriteWait = constants.DefaultWriteWait
+	}
+	if opts.ReadWait == 0 {
+		opts.ReadWait = constants.DefaultReadWait
+	}
+
+	cli := &Client{
+		id:      id,
+		name:    name,
+		options: opts,
+		Meta:    meta,
+	}
+	return cli
+}
+
 // ID return id
 func (c *Client) ID() string {
 	return c.id

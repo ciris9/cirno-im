@@ -4,10 +4,11 @@ import (
 	"cirno-im/logger"
 	"cirno-im/wire"
 	"cirno-im/wire/pkt"
-	"sync"
-
 	"google.golang.org/protobuf/proto"
+	"sync"
 )
+
+var _ SessionStorage
 
 type Session interface {
 	GetChannelID() string
@@ -46,6 +47,7 @@ type ContextImpl struct {
 	request  *pkt.LogicPkt
 	session  Session
 }
+
 
 func BuildContext() Context {
 	return &ContextImpl{}
@@ -123,7 +125,7 @@ func (c *ContextImpl) Dispatch(body proto.Message, recvs ...*Location) error {
 		err := c.Push(gateway, ids, packet)
 		if err != nil {
 			logger.Error(err.Error())
-			return err 
+			return err
 			///todo i think there maybe has a bug
 		}
 	}

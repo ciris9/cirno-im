@@ -90,7 +90,7 @@ func SetSelector(selector Selector) {
 	c.selector = selector
 }
 
-func SetServiceName(name naming.Naming) {
+func SetServiceNaming(name naming.Naming) {
 	c.Naming = name
 }
 

@@ -1,6 +1,7 @@
 package cim
 
 import (
+	"cirno-im/logger"
 	"cirno-im/wire/pkt"
 	"errors"
 	"sync"
@@ -40,6 +41,7 @@ func (r *Router) Serve(packet *pkt.LogicPkt, dispatcher Dispatcher, cache Sessio
 	ctx.Dispatcher = dispatcher
 	ctx.SessionStorage = cache
 	ctx.session = session
+	logger.Infof("serve,session:%#v", ctx.session)
 	r.serveContext(ctx)
 	r.pool.Put(ctx)
 	return nil

@@ -4,6 +4,7 @@ import (
 	cim "cirno-im"
 	"cirno-im/logger"
 	"cirno-im/wire/pkt"
+	"errors"
 )
 
 type LoginHandler struct{}
@@ -13,6 +14,7 @@ func NewLoginHandler() *LoginHandler {
 }
 
 func (h *LoginHandler) DoSyncLogin(ctx cim.Context) {
+
 	//1.序列化
 	var session pkt.Session
 	if err := ctx.ReadBody(&session); err != nil {
@@ -25,13 +27,13 @@ func (h *LoginHandler) DoSyncLogin(ctx cim.Context) {
 		"ChannelId": session.GetChannelID(),
 		"Account":   session.GetAccount(),
 		"RemoteIP":  session.GetRemoteIP(),
-	}).Info("do login,session")
+	}).Infof("do login")
 
 	//2.查看账号是否已经登录在其他的地方
 	location, err := ctx.GetLocation(session.Account, "")
-	if err != nil {
+	if err != nil && !errors.Is(err, cim.ErrSessionNil) {
 		responseWithError(ctx, pkt.Status_SystemException, err)
-		logger.Errorln(err)
+		logger.Errorln("location,err:", err)
 		return
 	}
 	if location != nil {
@@ -39,7 +41,7 @@ func (h *LoginHandler) DoSyncLogin(ctx cim.Context) {
 		err := ctx.Dispatch(&pkt.KickOutNotify{ChannelID: location.ChannelID})
 		if err != nil {
 			responseWithError(ctx, pkt.Status_SystemException, err)
-			logger.Errorln(err)
+			logger.Errorln("dispatch,err:", err)
 			return
 		}
 	}

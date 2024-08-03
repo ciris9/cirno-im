@@ -35,7 +35,7 @@ func Init(file string) (*Config, error) {
 	viper.AddConfigPath("/etc/conf")
 
 	if err := viper.ReadInConfig(); err != nil {
-		return nil, fmt.Errorf("config file not found: %w", err)
+		return nil, fmt.Errorf("conf file not found: %w", err)
 	}
 
 	var config Config

@@ -68,7 +68,7 @@ func Init(srv cim.Server, deps ...string) error {
 
 	c.Srv = srv
 	for _, dep := range deps {
-		if _, ok := c.deps[dep]; !ok {
+		if _, ok := c.deps[dep]; ok {
 			continue
 		}
 		c.deps[dep] = struct{}{}

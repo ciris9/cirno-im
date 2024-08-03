@@ -17,7 +17,7 @@ func (h *LoginHandler) DoSyncLogin(ctx cim.Context) {
 	var session pkt.Session
 	if err := ctx.ReadBody(&session); err != nil {
 		responseWithError(ctx, pkt.Status_InvalidPacketBody, err)
-		logger.Errorln(err)
+		logger.Errorln("1. serialization,err:", err)
 		return
 	}
 	logger.WithFields(logger.Fields{
@@ -25,7 +25,7 @@ func (h *LoginHandler) DoSyncLogin(ctx cim.Context) {
 		"ChannelId": session.GetChannelID(),
 		"Account":   session.GetAccount(),
 		"RemoteIP":  session.GetRemoteIP(),
-	}).Info("do login")
+	}).Info("do login,session")
 
 	//2.查看账号是否已经登录在其他的地方
 	location, err := ctx.GetLocation(session.Account, "")
@@ -47,7 +47,7 @@ func (h *LoginHandler) DoSyncLogin(ctx cim.Context) {
 	//4.添加到会话管理器内
 	if err := ctx.Add(&session); err != nil {
 		responseWithError(ctx, pkt.Status_SystemException, err)
-		logger.Errorln(err)
+		logger.Errorln("4.add err:", err)
 		return
 	}
 
@@ -56,7 +56,7 @@ func (h *LoginHandler) DoSyncLogin(ctx cim.Context) {
 	err = ctx.Resp(pkt.Status_Success, resp)
 	if err != nil {
 		responseWithError(ctx, pkt.Status_SystemException, err)
-		logger.Errorln(err)
+		logger.Errorln("5. response success,err:", err)
 		return
 	}
 }
@@ -83,6 +83,6 @@ func (h *LoginHandler) DoSysLogout(ctx cim.Context) {
 func responseWithError(ctx cim.Context, status pkt.Status, err error) {
 	err1 := ctx.RespWithError(status, err)
 	if err1 != nil {
-		logger.Errorln(err1)
+		logger.Errorln("response with error:", err1)
 	}
 }

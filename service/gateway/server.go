@@ -31,7 +31,7 @@ func NewServerStartCMD(ctx context.Context, version string) *cobra.Command {
 			return RunServerStart(ctx, opts, version)
 		},
 	}
-	cmd.PersistentFlags().StringVarP(&opts.config, "config", "c", "./gateway/config.yaml", "config file")
+	cmd.PersistentFlags().StringVarP(&opts.config, "conf", "c", "./gateway/conf.yaml", "conf file")
 	cmd.PersistentFlags().StringVarP(&opts.protocol, "protocol", "p", "ws", "protocol of ws or tcp")
 	return cmd
 }
@@ -58,6 +58,7 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 		Protocol: opts.protocol,
 		Tags:     config.Tags,
 	}
+	logger.Debugln(service)
 	if opts.protocol == "ws" {
 		srv = websocket.NewServer(config.Listen, service)
 	}

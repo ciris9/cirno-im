@@ -5,5 +5,5 @@ PublicPort: 8005
 Tags:
   - server
 ConsulURL: localhost:8500
-RedisAddrs: localhost:6379
+RedisAddrs: localhost:6380
 RpcURL: http://localhost:8080

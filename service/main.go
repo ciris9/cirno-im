@@ -4,9 +4,9 @@ import (
 	"context"
 	"flag"
 
-	"github.com/klintcheng/kim/logger"
-	"github.com/klintcheng/kim/services/gateway"
-	"github.com/klintcheng/kim/services/server"
+	"cirno-im/logger"
+	"cirno-im/service/gateway"
+	"cirno-im/service/server"
 	"github.com/spf13/cobra"
 )
 
@@ -22,8 +22,8 @@ func main() {
 	}
 	ctx := context.Background()
 
-	root.AddCommand(gateway.NewServerStartCmd(ctx, version))
-	root.AddCommand(server.NewServerStartCmd(ctx, version))
+	root.AddCommand(gateway.NewServerStartCMD(ctx, version))
+	root.AddCommand(server.NewServerStartCMD(ctx, version))
 
 	if err := root.Execute(); err != nil {
 		logger.WithError(err).Fatal("Could not run command")

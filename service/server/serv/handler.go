@@ -26,8 +26,8 @@ func (d *ServerDispatcher) Push(gateway string, channels []string, p *pkt.LogicP
 	return container.Push(gateway, p)
 }
 
-// Disconnect default listener
-func (h *ServHandler) Disconnect(id string) error {
+// DisConnect default listener
+func (h *ServHandler) DisConnect(id string) error {
 	logger.Warnf("close event of %s", id)
 	return nil
 }
@@ -89,7 +89,7 @@ func (h *ServHandler) Receive(agent cim.Agent, payload []byte) {
 			return
 		}
 	}
-	log.Debugf("recv a message from %s  %s", session, &packet.Header)
+	log.Infof("recv a message from %s ,header: %s", session, &packet.Header)
 	if err := h.r.Serve(packet, h.dispatcher, h.cache, session); err != nil {
 		log.Warn(err)
 	}
@@ -103,5 +103,4 @@ func RespErr(ag cim.Agent, p *pkt.LogicPkt, status pkt.Status) {
 	if err != nil {
 		log.Errorln(err)
 	}
-	return
 }

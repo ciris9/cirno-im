@@ -51,10 +51,12 @@ func (d *ClientDialer) DialAndHandshake(ctx cim.DialerContext) (net.Conn, error)
 	if err != nil {
 		return nil, err
 	}
+	logger.Info(string(frame.Payload))
 	ack, err := pkt.MustReadLogicPkt(bytes.NewBuffer(frame.Payload))
 	if err != nil {
 		return nil, err
 	}
+	logger.Infoln("body:", string(ack.Body), "status:", ack.Status)
 	// 4. 判断是否登陆成功
 	if ack.Status != pkt.Status_Success {
 		return nil, fmt.Errorf("login failed: %v", &ack.Header)

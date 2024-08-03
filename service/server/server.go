@@ -1,19 +1,19 @@
 package server
 
 import (
+	cim "cirno-im"
+	"cirno-im/constants"
+	"cirno-im/container"
+	"cirno-im/logger"
+	"cirno-im/naming"
+	"cirno-im/naming/consul"
+	"cirno-im/service/server/conf"
+	"cirno-im/service/server/handler"
+	"cirno-im/service/server/serv"
+	"cirno-im/storage"
+	"cirno-im/tcp"
+	"cirno-im/wire"
 	"context"
-
-	"github.com/klintcheng/kim"
-	"github.com/klintcheng/kim/container"
-	"github.com/klintcheng/kim/logger"
-	"github.com/klintcheng/kim/naming"
-	"github.com/klintcheng/kim/naming/consul"
-	"github.com/klintcheng/kim/services/server/conf"
-	"github.com/klintcheng/kim/services/server/handler"
-	"github.com/klintcheng/kim/services/server/serv"
-	"github.com/klintcheng/kim/storage"
-	"github.com/klintcheng/kim/tcp"
-	"github.com/klintcheng/kim/wire"
 	"github.com/spf13/cobra"
 )
 
@@ -24,7 +24,7 @@ type ServerStartOptions struct {
 }
 
 // NewServerStartCmd creates a new http server command
-func NewServerStartCmd(ctx context.Context, version string) *cobra.Command {
+func NewServerStartCMD(ctx context.Context, version string) *cobra.Command {
 	opts := &ServerStartOptions{}
 
 	cmd := &cobra.Command{
@@ -34,7 +34,7 @@ func NewServerStartCmd(ctx context.Context, version string) *cobra.Command {
 			return RunServerStart(ctx, opts, version)
 		},
 	}
-	cmd.PersistentFlags().StringVarP(&opts.config, "config", "c", "./server/conf.yaml", "Config file")
+	cmd.PersistentFlags().StringVarP(&opts.config, "conf", "c", "./server/conf.yaml", "Config file")
 	cmd.PersistentFlags().StringVarP(&opts.serviceName, "serviceName", "s", "chat", "defined a service name,option is login or chat")
 	return cmd
 }
@@ -45,14 +45,14 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 	if err != nil {
 		return err
 	}
-	_ = logger.Init(logger.Settings{
+	_ = logger.Init(logger.Setting{
 		Level: "trace",
 	})
 
-	r := kim.NewRouter()
+	r := cim.NewRouter()
 	// login
 	loginHandler := handler.NewLoginHandler()
-	r.Handle(wire.CommandLoginSignIn, loginHandler.DoSysLogin)
+	r.Handle(wire.CommandLoginSignIn, loginHandler.DoSyncLogin)
 	r.Handle(wire.CommandLoginSignOut, loginHandler.DoSysLogout)
 
 	rdb, err := conf.InitRedis(config.RedisAddrs, "")
@@ -72,7 +72,7 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 	}
 	srv := tcp.NewServer(config.Listen, service)
 
-	srv.SetReadWait(kim.DefaultReadWait)
+	srv.SetReadWait(constants.DefaultReadWait)
 	srv.SetAcceptor(servhandler)
 	srv.SetMessageListener(servhandler)
 	srv.SetStateListener(servhandler)

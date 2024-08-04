@@ -31,6 +31,7 @@ type Context interface {
 	RespWithError(status pkt.Status, err error) error
 	Resp(status pkt.Status, body proto.Message) error
 	Dispatch(body proto.Message, recvs ...*Location) error
+	Next()
 }
 
 type HandlerFunc func(ctx Context)
@@ -47,7 +48,6 @@ type ContextImpl struct {
 	request  *pkt.LogicPkt
 	session  Session
 }
-
 
 func BuildContext() Context {
 	return &ContextImpl{}

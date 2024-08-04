@@ -2,7 +2,7 @@
 
 ## 大致架构
 
-![image-20240804205240571](C:\Users\23119\AppData\Roaming\Typora\typora-user-images\image-20240804205240571.png)
+![image-20240804221851321](./image-20240804221851321.png)
 
 网关：sdk侧实际与网关建立长连接，进行消息监听。并且可以将鉴权限流等逻辑分离到网关内。
 

@@ -1,10 +1,9 @@
 package naming
 
 import (
-	"fmt"
 	"cirno-im"
+	"fmt"
 )
-
 
 // DefaultService Service Impl
 type DefaultService struct {
@@ -18,7 +17,6 @@ type DefaultService struct {
 	Meta      map[string]string
 }
 
-// NewEntry NewEntry
 func NewEntry(id, name, protocol string, address string, port int) cim.ServiceRegistration {
 	return &DefaultService{
 		Id:       id,

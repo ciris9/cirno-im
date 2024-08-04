@@ -1,7 +1,7 @@
 ServiceID: chat01
-Listen: ":8005"
+Listen: ":8004"
 PublicAddress: "localhost"
-PublicPort: 8005
+PublicPort: 8004
 Tags:
   - server
 ConsulURL: localhost:8500

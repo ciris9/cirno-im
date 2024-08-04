@@ -23,7 +23,7 @@ type ServerStartOptions struct {
 	serviceName string
 }
 
-// NewServerStartCmd creates a new http server command
+// NewServerStartCMD creates a new http server command
 func NewServerStartCMD(ctx context.Context, version string) *cobra.Command {
 	opts := &ServerStartOptions{}
 

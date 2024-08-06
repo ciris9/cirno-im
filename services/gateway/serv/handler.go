@@ -14,8 +14,8 @@ import (
 )
 
 var log = logger.WithFields(logger.Fields{
-	"service": "gateway",
-	"pkg":     "serv",
+	"services": "gateway",
+	"pkg":      "serv",
 })
 
 type Handler struct {

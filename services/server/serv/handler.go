@@ -14,8 +14,8 @@ import (
 )
 
 var log = logger.WithFields(logger.Fields{
-	"service": wire.SNChat,
-	"pkg":     "serv",
+	"services": wire.SNChat,
+	"pkg":      "serv",
 })
 
 type ServerDispatcher struct {

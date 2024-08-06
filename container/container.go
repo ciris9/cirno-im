@@ -141,7 +141,7 @@ func Push(server string, p *pkt.LogicPkt) error {
 	return c.Srv.Push(server, pkt.Marshal(p))
 }
 
-// Forward message to service
+// Forward message to services
 func Forward(serviceName string, packet *pkt.LogicPkt) error {
 	if packet == nil {
 		return errors.New("packet is nil")
@@ -155,7 +155,7 @@ func Forward(serviceName string, packet *pkt.LogicPkt) error {
 	return ForwardWithSelector(serviceName, packet, c.selector)
 }
 
-// ForwardWithSelector forward data to the specified node of service which is chosen by selector
+// ForwardWithSelector forward data to the specified node of services which is chosen by selector
 func ForwardWithSelector(serviceName string, packet *pkt.LogicPkt, selector Selector) error {
 	cli, err := lookup(serviceName, &packet.Header, selector)
 	if err != nil {
@@ -175,7 +175,7 @@ func connectToService(serviceName string) error {
 			if _, ok := clients.Get(service.ServiceID()); ok {
 				continue
 			}
-			log.WithField("func", "connectToService").Infof("Watch a new service: %v", service)
+			log.WithField("func", "connectToService").Infof("Watch a new services: %v", service)
 			service.GetMetadata()[KeyServiceState] = StateYoung
 			go func() {
 				time.Sleep(delay)
@@ -208,7 +208,7 @@ func buildClient(clients ClientMap, service cim.ServiceRegistration) (cim.Client
 	}
 	//检查服务间是否使用tcp协议进行通讯
 	if service.GetProtocol() != string(wire.ProtocolTCP) {
-		return nil, errors.New("service is not a TCP protocol")
+		return nil, errors.New("services is not a TCP protocol")
 	}
 
 	//构建客户端并且进行连接
@@ -302,12 +302,12 @@ func shutdown() error {
 		return err
 	}
 
-	// deregiste service from service registrer center
+	// deregiste services from services registrer center
 	err = c.Naming.Deregister(c.Srv.ServiceID())
 	if err != nil {
 		return err
 	}
-	// unsubscribe service change
+	// unsubscribe services change
 	for dep := range c.deps {
 		_ = c.Naming.Unsubscribe(dep)
 	}
@@ -319,11 +319,11 @@ func shutdown() error {
 func lookup(serviceName string, header *pkt.Header, selector Selector) (cim.Client, error) {
 	clients, ok := c.srvClients[serviceName]
 	if !ok {
-		return nil, fmt.Errorf("service %s not found", serviceName)
+		return nil, fmt.Errorf("services %s not found", serviceName)
 	}
 	srvs := clients.Services(KeyServiceState, StateAdult)
 	if len(srvs) == 0 {
-		return nil, fmt.Errorf("no service found")
+		return nil, fmt.Errorf("no services found")
 	}
 	id := selector.Lookup(header, srvs)
 	if cli, ok := clients.Get(id); ok {

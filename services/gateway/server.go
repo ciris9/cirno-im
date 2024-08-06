@@ -6,8 +6,8 @@ import (
 	"cirno-im/logger"
 	"cirno-im/naming"
 	"cirno-im/naming/consul"
-	"cirno-im/service/gateway/conf"
-	"cirno-im/service/gateway/serv"
+	"cirno-im/services/gateway/conf"
+	"cirno-im/services/gateway/serv"
 	"cirno-im/websocket"
 	"cirno-im/wire"
 	"context"
@@ -63,7 +63,7 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 		srv = websocket.NewServer(config.Listen, service)
 	}
 	if srv == nil {
-		return errors.New("service is nil")
+		return errors.New("services is nil")
 	}
 	srv.SetReadWait(time.Minute * 2)
 	srv.SetAcceptor(handler)

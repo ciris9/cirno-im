@@ -5,8 +5,8 @@ import (
 	"flag"
 
 	"cirno-im/logger"
-	"cirno-im/service/gateway"
-	"cirno-im/service/server"
+	"cirno-im/services/gateway"
+	"cirno-im/services/server"
 	"github.com/spf13/cobra"
 )
 

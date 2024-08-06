@@ -47,9 +47,9 @@ const (
 const (
 	SNWGateway = "wgateway"
 	SNTGateway = "tgateway"
-	SNLogin    = "chat"    //login
-	SNChat     = "chat"    //chat
-	SNService  = "service" //rpc ser
+	SNLogin    = "chat"     //login
+	SNChat     = "chat"     //chat
+	SNService  = "services" //rpc ser
 )
 
 type ServiceID string

@@ -53,7 +53,7 @@ func (n *Naming) Find(name string, tags ...string) ([]cim.ServiceRegistration, e
 	return services, nil
 }
 
-// refresh service registration
+// refresh services registration
 func (n *Naming) load(name string, waitIndex uint64, tags ...string) ([]cim.ServiceRegistration, *api.QueryMeta, error) {
 	opts := &api.QueryOptions{
 		UseCache:  true,
@@ -68,7 +68,7 @@ func (n *Naming) load(name string, waitIndex uint64, tags ...string) ([]cim.Serv
 	services := make([]cim.ServiceRegistration, len(catalogServices))
 	for i, s := range catalogServices {
 		if s.Checks.AggregatedStatus() != api.HealthPassing {
-			logger.Debugf("load service: id:%s name:%s %s:%d Status:%s", s.ServiceID, s.ServiceName, s.ServiceAddress, s.ServicePort, s.Checks.AggregatedStatus())
+			logger.Debugf("load services: id:%s name:%s %s:%d Status:%s", s.ServiceID, s.ServiceName, s.ServiceAddress, s.ServicePort, s.Checks.AggregatedStatus())
 			continue
 		}
 		services[i] = &naming.DefaultService{
@@ -81,7 +81,7 @@ func (n *Naming) load(name string, waitIndex uint64, tags ...string) ([]cim.Serv
 			Meta:     s.ServiceMeta,
 		}
 	}
-	logger.Debugf("load service: %v, meta:%v", services, meta)
+	logger.Debugf("load services: %v, meta:%v", services, meta)
 	return services, meta, nil
 }
 

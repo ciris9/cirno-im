@@ -7,9 +7,9 @@ import (
 	"cirno-im/logger"
 	"cirno-im/naming"
 	"cirno-im/naming/consul"
-	"cirno-im/service/server/conf"
-	"cirno-im/service/server/handler"
-	"cirno-im/service/server/serv"
+	"cirno-im/services/server/conf"
+	"cirno-im/services/server/handler"
+	"cirno-im/services/server/serv"
 	"cirno-im/storage"
 	"cirno-im/tcp"
 	"cirno-im/wire"
@@ -35,7 +35,7 @@ func NewServerStartCMD(ctx context.Context, version string) *cobra.Command {
 		},
 	}
 	cmd.PersistentFlags().StringVarP(&opts.config, "conf", "c", "./server/conf.yaml", "Config file")
-	cmd.PersistentFlags().StringVarP(&opts.serviceName, "serviceName", "s", "chat", "defined a service name,option is login or chat")
+	cmd.PersistentFlags().StringVarP(&opts.serviceName, "serviceName", "s", "chat", "defined a services name,option is login or chat")
 	return cmd
 }
 

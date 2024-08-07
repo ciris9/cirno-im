@@ -113,8 +113,8 @@ func newApp(serviceHandler *handler.ServiceHandler) *iris.Application {
 	messageApi := app.Party("/api/:app/message")
 	{
 		messageApi.Post("/user", serviceHandler.InsertUserMessage)
-		messageAPI.Post("/group", serviceHandler.InsertGroupMessage)
-		messageAPI.Post("/ack", serviceHandler.MessageAck)
+		messageApi.Post("/group", serviceHandler.InsertGroupMessage)
+		messageApi.Post("/ack", serviceHandler.MessageAck)
 	}
 	groupApi := app.Party("/api/:app/group")
 	{

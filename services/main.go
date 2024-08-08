@@ -16,9 +16,9 @@ func main() {
 	flag.Parse()
 
 	root := &cobra.Command{
-		Use:     "kim",
+		Use:     "cim",
 		Version: version,
-		Short:   "King IM Cloud",
+		Short:   "cirno-im service",
 	}
 	ctx := context.Background()
 

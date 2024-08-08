@@ -81,10 +81,3 @@ func (h *LoginHandler) DoSysLogout(ctx cim.Context) {
 		return
 	}
 }
-
-func responseWithError(ctx cim.Context, status pkt.Status, err error) {
-	err1 := ctx.RespWithError(status, err)
-	if err1 != nil {
-		logger.Errorln("response with error:", err1)
-	}
-}

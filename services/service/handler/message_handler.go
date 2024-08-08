@@ -2,10 +2,10 @@ package handler
 
 import (
 	"cirno-im/services/service/database"
+	"cirno-im/wire"
 	"cirno-im/wire/rpc"
 	"github.com/go-redis/redis/v7"
 	"github.com/kataras/iris/v12"
-	"github.com/klintcheng/kim/wire"
 	"gorm.io/gorm"
 	"time"
 )

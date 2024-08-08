@@ -5,9 +5,9 @@ import (
 	"log"
 	"time"
 
+	"cirno-im/logger"
 	"github.com/go-redis/redis/v7"
 	"github.com/kelseyhightower/envconfig"
-	"github.com/klintcheng/kim/logger"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )

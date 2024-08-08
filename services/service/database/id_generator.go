@@ -4,6 +4,8 @@ import (
 	"github.com/bwmarrin/snowflake"
 )
 
+//雪花算法生成唯一id
+
 type IDGenerator struct {
 	node *snowflake.Node
 }

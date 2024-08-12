@@ -1,0 +1,4 @@
+time="2024-08-11T02:19:08+08:00" level=error msg="deregister service royal01 err: Unexpected response code: 404 (Unknown service ID \"royal01\". Ensure that the service ID is passed, not the service name.)"
+time="2024-08-11T02:27:41+08:00" level=error msg="deregister service royal01 err: Unexpected response code: 404 (Unknown service ID \"royal01\". Ensure that the service ID is passed, not the service name.)"
+time="2024-08-11T03:09:48+08:00" level=error msg="deregister service royal01 err: Unexpected response code: 404 (Unknown service ID \"royal01\". Ensure that the service ID is passed, not the service name.)"
+time="2024-08-11T21:50:00+08:00" level=error msg="deregister service royal01 err: Unexpected response code: 404 (Unknown service ID \"royal01\". Ensure that the service ID is passed, not the service name.)"

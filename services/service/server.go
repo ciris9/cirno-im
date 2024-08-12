@@ -7,7 +7,9 @@ import (
 	"cirno-im/services/service/conf"
 	"cirno-im/services/service/database"
 	"cirno-im/services/service/handler"
+	"cirno-im/wire"
 	"context"
+	"fmt"
 	"github.com/kataras/iris/v12"
 	"github.com/spf13/cobra"
 	"hash/crc32"
@@ -24,7 +26,7 @@ func NewServerStartCmd(ctx context.Context, version string) *cobra.Command {
 		Short: "start a rpc services",
 		RunE:  func(cmd *cobra.Command, args []string) error { return RunServerStart(ctx, opts, version) },
 	}
-	cmd.PersistentFlags().StringVarP(&opts.config, "config", "c", "config.yaml", "config file")
+	cmd.PersistentFlags().StringVarP(&opts.config, "config", "c", "conf.yaml", "config file")
 	return cmd
 }
 
@@ -72,14 +74,14 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 	}
 
 	if err = ns.Register(&naming.DefaultService{
-		Id:        config.ServiceID,
-		Name:      "",
-		Address:   "",
-		Port:      0,
-		Protocol:  "",
-		Namespace: "",
-		Tags:      nil,
-		Meta:      nil,
+		Name:     wire.SNService, // service name
+		Address:  config.PublicAddress,
+		Port:     config.PublicPort,
+		Protocol: "http",
+		Tags:     config.Tags,
+		Meta: map[string]string{
+			consul.KeyHealthURL: fmt.Sprintf("http://%s:%d/health", config.PublicAddress, config.PublicPort),
+		},
 	}); err != nil {
 		return err
 	}
@@ -102,7 +104,7 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 	app := newApp(&serviceHandler)
 	app.UseRouter(ac.Handler)
 	app.UseRouter(setAllowedResponses)
-	return nil
+	return app.Listen(config.Listen, iris.WithOptimizations)
 }
 
 func newApp(serviceHandler *handler.ServiceHandler) *iris.Application {
@@ -110,6 +112,7 @@ func newApp(serviceHandler *handler.ServiceHandler) *iris.Application {
 	app.Get("/health", func(ctx iris.Context) {
 		_, _ = ctx.WriteString("ok")
 	})
+
 	messageApi := app.Party("/api/:app/message")
 	{
 		messageApi.Post("/user", serviceHandler.InsertUserMessage)

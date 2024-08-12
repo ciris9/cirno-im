@@ -5,16 +5,20 @@ import (
 	"cirno-im/constants"
 	"cirno-im/container"
 	"cirno-im/logger"
+	"cirno-im/middleware"
 	"cirno-im/naming"
 	"cirno-im/naming/consul"
 	"cirno-im/services/server/conf"
 	"cirno-im/services/server/handler"
 	"cirno-im/services/server/serv"
+	"cirno-im/services/server/service"
 	"cirno-im/storage"
 	"cirno-im/tcp"
 	"cirno-im/wire"
 	"context"
+	"github.com/go-resty/resty/v2"
 	"github.com/spf13/cobra"
+	"strings"
 )
 
 // ServerStartOptions ServerStartOptions
@@ -34,7 +38,7 @@ func NewServerStartCMD(ctx context.Context, version string) *cobra.Command {
 			return RunServerStart(ctx, opts, version)
 		},
 	}
-	cmd.PersistentFlags().StringVarP(&opts.config, "conf", "c", "./server/conf.yaml", "Config file")
+	cmd.PersistentFlags().StringVarP(&opts.config, "conf", "c", "conf.yaml", "Config file")
 	cmd.PersistentFlags().StringVarP(&opts.serviceName, "serviceName", "s", "chat", "defined a services name,option is login or chat")
 	return cmd
 }
@@ -46,14 +50,46 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 		return err
 	}
 	_ = logger.Init(logger.Setting{
-		Level: "trace",
+		Level:    config.LogLevel,
+		Filename: "./data/server.log",
 	})
 
+	var groupService service.Group
+	var messageService service.Message
+	if strings.TrimSpace(config.RoyalURL) != "" {
+		groupService = service.NewGroupService(config.RoyalURL)
+		messageService = service.NewMessageService(config.RoyalURL)
+	} else {
+		srvRecord := &resty.SRVRecord{
+			Domain:  "consul",
+			Service: wire.SNService,
+		}
+		groupService = service.NewGroupServiceWithSRV("http", srvRecord)
+		messageService = service.NewMessageServiceWithSRV("http", srvRecord)
+	}
 	r := cim.NewRouter()
+	r.Use(middleware.Recover())
+
 	// login
 	loginHandler := handler.NewLoginHandler()
 	r.Handle(wire.CommandLoginSignIn, loginHandler.DoSyncLogin)
 	r.Handle(wire.CommandLoginSignOut, loginHandler.DoSysLogout)
+	// talk
+	chatHandler := handler.NewChatHandler(messageService, groupService)
+	r.Handle(wire.CommandChatUserTalk, chatHandler.DoUserTalk)
+	r.Handle(wire.CommandChatGroupTalk, chatHandler.DoGroupTalk)
+	r.Handle(wire.CommandChatTalkAck, chatHandler.DoTalkAck)
+	// group
+	groupHandler := handler.NewGroupHandler(groupService)
+	r.Handle(wire.CommandGroupCreate, groupHandler.DoCreate)
+	r.Handle(wire.CommandGroupJoin, groupHandler.DoJoin)
+	r.Handle(wire.CommandGroupQuit, groupHandler.DoQuit)
+	r.Handle(wire.CommandGroupDetail, groupHandler.DoDetail)
+
+	// offline
+	offlineHandler := handler.NewOfflineHandler(messageService)
+	r.Handle(wire.CommandOfflineIndex, offlineHandler.DoSyncIndex)
+	r.Handle(wire.CommandOfflineContent, offlineHandler.DoSyncContent)
 
 	rdb, err := conf.InitRedis(config.RedisAddrs, "")
 	if err != nil {

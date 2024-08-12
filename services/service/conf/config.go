@@ -41,9 +41,11 @@ func (c Config) String() string {
 // Init InitConfig
 func Init(file string) (*Config, error) {
 	viper.SetConfigFile(file)
+	viper.SetConfigName("conf")
+	logger.Infoln(file)
 	viper.AddConfigPath(".")
+	viper.AddConfigPath("./service")
 	viper.AddConfigPath("/etc/conf")
-
 	var config Config
 	if err := viper.ReadInConfig(); err != nil {
 		logger.Warn(err)

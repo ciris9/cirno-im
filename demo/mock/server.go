@@ -1,19 +1,23 @@
 package mock
 
 import (
-	"errors"
-	"time"
-
 	"cirno-im"
 	"cirno-im/logger"
 	"cirno-im/naming"
 	"cirno-im/tcp"
 	"cirno-im/websocket"
+	"errors"
+	"net/http"
+	_ "net/http/pprof"
+	"time"
 )
 
 type ServerDemo struct{}
 
 func (s *ServerDemo) Start(id, protocol, addr string) {
+	go func() {
+		logger.Println(http.ListenAndServe(":6060", nil))
+	}()
 	var srv cim.Server
 	service := &naming.DefaultService{
 		Id:       id,

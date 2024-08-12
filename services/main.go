@@ -1,6 +1,8 @@
 package main
 
 import (
+	"cirno-im/services/router"
+	"cirno-im/services/service"
 	"context"
 	"flag"
 
@@ -24,6 +26,8 @@ func main() {
 
 	root.AddCommand(gateway.NewServerStartCMD(ctx, version))
 	root.AddCommand(server.NewServerStartCMD(ctx, version))
+	root.AddCommand(service.NewServerStartCmd(ctx, version))
+	root.AddCommand(router.NewServerStartCmd(ctx, version))
 
 	if err := root.Execute(); err != nil {
 		logger.WithError(err).Fatal("Could not run command")

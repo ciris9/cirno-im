@@ -6,8 +6,10 @@ import (
 	"cirno-im/logger"
 	"context"
 	"errors"
+	"fmt"
 	"github.com/gobwas/ws"
 	"github.com/segmentio/ksuid"
+	"net"
 	"net/http"
 	"sync"
 	"time"
@@ -48,8 +50,87 @@ func NewServer(listen string, service cim.ServiceRegistration) cim.Server {
 	}
 }
 
+//func (s *Server) Start() error {
+//	mux := http.NewServeMux()
+//	log := logger.WithFields(logger.Fields{
+//		"module": "ws.server",
+//		"listen": s.listen,
+//		"id":     s.ServiceID(),
+//	})
+//
+//	if s.Acceptor == nil {
+//		s.Acceptor = new(defaultAcceptor)
+//	}
+//	if s.StateListener == nil {
+//		return errors.New("StateListener is nil")
+//	}
+//	if s.ChannelMap == nil {
+//		s.ChannelMap = cim.NewChannels(100)
+//	}
+//	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+//		//step 1 升级
+//		rawConn, _, _, err := ws.UpgradeHTTP(r, w)
+//		if err != nil {
+//			resp(w, http.StatusBadRequest, err.Error())
+//			return
+//		}
+//
+//		//step 2 包装con
+//		conn := NewConn(rawConn)
+//		id, err := s.Accept(conn, s.options.loginWait)
+//		if err != nil {
+//			err1 := conn.WriteFrame(cim.OpClose, []byte(err.Error()))
+//			if err1 != nil {
+//				logger.Error(err.Error())
+//			}
+//			return
+//		}
+//
+//		//step 3
+//		if _, ok := s.Get(id); ok {
+//			log.Warnf("channel %s existed", id)
+//			err = conn.WriteFrame(cim.OpClose, []byte("channel is is repeated"))
+//			if err != nil {
+//				log.Warn(err)
+//				return
+//			}
+//			err = conn.Close()
+//			if err != nil {
+//				log.Warn(err)
+//				return
+//			}
+//		}
+//
+//		//step 4
+//		channel := cim.NewChannel(id, conn)
+//		channel.SetWriteWait(s.options.writeWait)
+//		channel.SetReadWait(s.options.readWait)
+//		s.Add(channel)
+//
+//		go func(ch cim.Channel) {
+//			err := ch.ReadLoop(s.MessageListener)
+//			if err != nil {
+//				logger.Error(err.Error())
+//			}
+//			s.Remove(ch.ID())
+//			err = s.DisConnect(ch.ID())
+//			if err != nil {
+//				log.Warn(err)
+//				return
+//			}
+//			err = ch.Close()
+//			if err != nil {
+//				log.Warn(err)
+//				return
+//			}
+//		}(channel)
+//	})
+//	log.Info("started")
+//	return http.ListenAndServe(s.listen, mux)
+//}
+
+// websocket/server.go
 func (s *Server) Start() error {
-	mux := http.NewServeMux()
 	log := logger.WithFields(logger.Fields{
 		"module": "ws.server",
 		"listen": s.listen,
@@ -60,71 +141,60 @@ func (s *Server) Start() error {
 		s.Acceptor = new(defaultAcceptor)
 	}
 	if s.StateListener == nil {
-		return errors.New("StateListener is nil")
+		return fmt.Errorf("StateListener is nil")
 	}
 	if s.ChannelMap == nil {
 		s.ChannelMap = cim.NewChannels(100)
 	}
-	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		//step 1 升级
-		rawConn, _, _, err := ws.UpgradeHTTP(r, w)
-		if err != nil {
-			resp(w, http.StatusBadRequest, err.Error())
-			return
-		}
 
-		//step 2 包装con
-		conn := NewConn(rawConn)
-		id, err := s.Accept(conn, s.options.loginWait)
-		if err != nil {
-			err1 := conn.WriteFrame(cim.OpClose, []byte(err.Error()))
-			if err1 != nil {
-				logger.Error(err.Error())
-			}
-			return
-		}
-
-		//step 3
-		if _, ok := s.Get(id); ok {
-			log.Warnf("channel %s existed", id)
-			err = conn.WriteFrame(cim.OpClose, []byte("channel is is repeated"))
-			if err != nil {
-				log.Warn(err)
-				return
-			}
-			err = conn.Close()
-			if err != nil {
-				log.Warn(err)
-				return
-			}
-		}
-
-		//step 4
-		channel := cim.NewChannel(id, conn)
-		channel.SetWriteWait(s.options.writeWait)
-		channel.SetReadWait(s.options.readWait)
-		s.Add(channel)
-
-		go func(ch cim.Channel) {
-			err := ch.ReadLoop(s.MessageListener)
-			if err != nil {
-				logger.Error(err.Error())
-			}
-			s.Remove(ch.ID())
-			err = s.DisConnect(ch.ID())
-			if err != nil {
-				log.Warn(err)
-				return
-			}
-			err = ch.Close()
-			if err != nil {
-				log.Warn(err)
-				return
-			}
-		}(channel)
-	})
+	lst, err := net.Listen("tcp", s.listen)
+	if err != nil {
+		return err
+	}
 	log.Info("started")
-	return http.ListenAndServe(s.listen, mux)
+	for {
+		rawconn, err := lst.Accept()
+		if err != nil {
+			rawconn.Close()
+			log.Warn(err)
+			continue
+		}
+		_, err = ws.Upgrade(rawconn)
+		if err != nil {
+			rawconn.Close()
+			log.Warn(err)
+			continue
+		}
+		go func(rawconn net.Conn) {
+			conn := NewConn(rawconn)
+
+			id, err := s.Accept(conn, s.options.loginWait)
+			if err != nil {
+				_ = conn.WriteFrame(cim.OpClose, []byte(err.Error()))
+				conn.Close()
+				return
+			}
+			if _, ok := s.Get(id); ok {
+				log.Warnf("channel %s existed", id)
+				_ = conn.WriteFrame(cim.OpClose, []byte("channelId is repeated"))
+				conn.Close()
+				return
+			}
+
+			channel := cim.NewChannel(id, conn)
+			channel.SetReadWait(s.options.readWait)
+			channel.SetWriteWait(s.options.writeWait)
+
+			s.Add(channel)
+			err = channel.ReadLoop(s.MessageListener)
+			if err != nil {
+				log.Info(err)
+			}
+			s.Remove(channel.ID())
+			_ = s.DisConnect(channel.ID())
+			channel.Close()
+		}(rawconn)
+	}
 }
 
 func resp(w http.ResponseWriter, code int, msg string) {

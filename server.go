@@ -43,7 +43,7 @@ type Server interface {
 
 type Acceptor interface {
 	// Accept TODO 在Server的Start()方法中监听到连接之后，就要调用这个Accept方法让上层业务处理握手相关工作.
-	Accept(Conn, time.Duration) (string, error)
+	Accept(Conn, time.Duration) (string, Meta, error)
 }
 
 type MessageListener interface {
@@ -102,6 +102,8 @@ type DialerContext struct {
 	Address string
 	Timeout time.Duration
 }
+
+type Meta map[string]string
 
 type OpCode byte
 

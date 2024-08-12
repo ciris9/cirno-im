@@ -1,6 +1,8 @@
 package main
 
 import (
+	"cirno-im/demo/cimbench"
+	"cirno-im/demo/echo"
 	"context"
 	"flag"
 
@@ -15,15 +17,19 @@ func main() {
 	flag.Parse()
 
 	root := &cobra.Command{
-		Use:     "fim",
+		Use:     "kim",
 		Version: version,
-		Short:   "server",
+		Short:   "tools",
 	}
 	ctx := context.Background()
+
+	// run echo client
+	root.AddCommand(echo.NewCmd(ctx))
 
 	// mock
 	root.AddCommand(mock.NewClientCmd(ctx))
 	root.AddCommand(mock.NewServerCmd(ctx))
+	root.AddCommand(cimbench.NewBenchmarkCmd(ctx))
 
 	if err := root.Execute(); err != nil {
 		logger.WithError(err).Fatal("Could not run command")

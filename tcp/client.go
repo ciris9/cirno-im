@@ -4,7 +4,6 @@ import (
 	"cirno-im/constants"
 	"errors"
 	"fmt"
-	"net/url"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -15,7 +14,7 @@ import (
 
 // ClientOptions ClientOptions
 type ClientOptions struct {
-	Heartbeat time.Duration //登陆超时
+	Heartbeat time.Duration //登录超时
 	ReadWait  time.Duration //读超时
 	WriteWait time.Duration //写超时
 }
@@ -34,20 +33,8 @@ type Client struct {
 }
 
 // NewClient NewClient
-func NewClient(id, name string, meta map[string]string, opts ClientOptions) cim.Client {
-	if opts.WriteWait == 0 {
-		opts.WriteWait = constants.DefaultWriteWait
-	}
-	if opts.ReadWait == 0 {
-		opts.ReadWait = constants.DefaultReadWait
-	}
-	cli := &Client{
-		id:      id,
-		name:    name,
-		options: opts,
-		Meta:    meta,
-	}
-	return cli
+func NewClient(id, name string, opts ClientOptions) cim.Client {
+	return NewClientWithProps(id, name, make(map[string]string), opts)
 }
 
 func NewClientWithProps(id, name string, meta map[string]string, opts ClientOptions) cim.Client {
@@ -67,22 +54,16 @@ func NewClientWithProps(id, name string, meta map[string]string, opts ClientOpti
 	return cli
 }
 
-// ID return id
 func (c *Client) ID() string {
-	return c.id
+	return "client id"
 }
 
-// Name Name
 func (c *Client) Name() string {
-	return c.name
+	return "client name"
 }
 
 // Connect to server
 func (c *Client) Connect(addr string) error {
-	_, err := url.Parse(addr)
-	if err != nil {
-		return err
-	}
 	// 这里是一个CAS原子操作，对比并设置值，是并发安全的。
 	if !atomic.CompareAndSwapInt32(&c.state, 0, 1) {
 		return fmt.Errorf("client has connected")
@@ -105,9 +86,9 @@ func (c *Client) Connect(addr string) error {
 
 	if c.options.Heartbeat > 0 {
 		go func() {
-			err := c.heartbealoop()
+			err := c.heartbeatloop()
 			if err != nil {
-				logger.WithField("module", "tcp.client").Warn("heartbealoop stopped - ", err)
+				logger.WithField("module", "tcp.client").Warn("heartbeatloop stopped - ", err)
 			}
 		}()
 	}
@@ -126,11 +107,11 @@ func (c *Client) Send(payload []byte) error {
 	}
 	c.Lock()
 	defer c.Unlock()
-	err := c.conn.SetWriteDeadline(time.Now().Add(c.options.WriteWait))
+	err := c.conn.WriteFrame(cim.OpBinary, payload)
 	if err != nil {
 		return err
 	}
-	return c.conn.WriteFrame(cim.OpBinary, payload)
+	return c.conn.Flush()
 }
 
 // Close 关闭
@@ -140,7 +121,8 @@ func (c *Client) Close() {
 			return
 		}
 		// graceful close connection
-		_ = WriteFrame(c.conn, cim.OpClose, nil)
+		_ = c.conn.WriteFrame(cim.OpClose, nil)
+		c.conn.Flush()
 
 		c.conn.Close()
 		atomic.CompareAndSwapInt32(&c.state, 1, 0)
@@ -164,7 +146,7 @@ func (c *Client) Read() (cim.Frame, error) {
 	return frame, nil
 }
 
-func (c *Client) heartbealoop() error {
+func (c *Client) heartbeatloop() error {
 	tick := time.NewTicker(c.options.Heartbeat)
 	for range tick.C {
 		// 发送一个ping的心跳包给服务端
@@ -178,11 +160,11 @@ func (c *Client) heartbealoop() error {
 func (c *Client) ping() error {
 	logger.WithField("module", "tcp.client").Tracef("%s send ping to server", c.id)
 
-	err := c.conn.SetWriteDeadline(time.Now().Add(c.options.WriteWait))
+	err := c.conn.WriteFrame(cim.OpPing, nil)
 	if err != nil {
 		return err
 	}
-	return c.conn.WriteFrame(cim.OpPing, nil)
+	return c.conn.Flush()
 }
 
 // ID return id
@@ -194,5 +176,4 @@ func (c *Client) ServiceID() string {
 func (c *Client) ServiceName() string {
 	return c.name
 }
-
 func (c *Client) GetMetadata() map[string]string { return c.Meta }

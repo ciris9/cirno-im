@@ -1,6 +1,7 @@
 package tcp
 
 import (
+	"bufio"
 	cim "cirno-im"
 	"cirno-im/wire/endian"
 	"io"
@@ -30,12 +31,25 @@ func (f *Frame) SetPayload(payload []byte) {
 
 type TcpConn struct {
 	net.Conn
+	rd *bufio.Reader
+	wr *bufio.Writer
 }
 
 func NewConn(conn net.Conn) *TcpConn {
-	return &TcpConn{conn}
+	return &TcpConn{
+		Conn: conn,
+		rd:   bufio.NewReaderSize(conn, 4096),
+		wr:   bufio.NewWriterSize(conn, 1024),
+	}
 }
 
+func NewConnWithRW(conn net.Conn, rd *bufio.Reader, wr *bufio.Writer) *TcpConn {
+	return &TcpConn{
+		Conn: conn,
+		rd:   rd,
+		wr:   wr,
+	}
+}
 func (c *TcpConn) ReadFrame() (cim.Frame, error) {
 	opCode, err := endian.ReadUint8(c.Conn)
 	if err != nil {

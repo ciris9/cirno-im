@@ -17,19 +17,22 @@ import (
 )
 
 type ClientDialer struct {
+	AppSecret string
 }
 
 func (d *ClientDialer) DialAndHandshake(ctx cim.DialerContext) (net.Conn, error) {
-	logger.Info("DialAndHandshake called")
 	// 1. 拨号
 	conn, _, _, err := ws.Dial(context.TODO(), ctx.Address)
 	if err != nil {
 		return nil, err
 	}
+	if d.AppSecret == "" {
+		d.AppSecret = token.DefaultSecret
+	}
 	// 2. 直接使用封装的JWT包生成一个token
-	tk, err := token.Generate(token.DefaultSecret, &token.Token{
+	tk, err := token.Generate(d.AppSecret, &token.Token{
 		Account: ctx.Id,
-		App:     "cim",
+		App:     "kim",
 		Exp:     time.Now().AddDate(0, 0, 1).Unix(),
 	})
 	if err != nil {
@@ -45,25 +48,22 @@ func (d *ClientDialer) DialAndHandshake(ctx cim.DialerContext) (net.Conn, error)
 	}
 
 	// wait resp
-	logger.Info("waiting for login response")
 	_ = conn.SetReadDeadline(time.Now().Add(ctx.Timeout))
 	frame, err := ws.ReadFrame(conn)
 	if err != nil {
 		return nil, err
 	}
-	logger.Info(string(frame.Payload))
 	ack, err := pkt.MustReadLogicPkt(bytes.NewBuffer(frame.Payload))
 	if err != nil {
 		return nil, err
 	}
-	logger.Infoln("body:", string(ack.Body), "status:", ack.Status)
-	// 4. 判断是否登陆成功
+	// 4. 判断是否登录成功
 	if ack.Status != pkt.Status_Success {
 		return nil, fmt.Errorf("login failed: %v", &ack.Header)
 	}
 	var resp = new(pkt.LoginResponse)
 	_ = ack.ReadBody(resp)
 
-	logger.Info("logined ", resp.GetChannelID())
+	logger.Debug("logined ", resp.GetChannelID())
 	return conn, nil
 }

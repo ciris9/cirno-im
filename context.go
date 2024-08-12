@@ -36,14 +36,14 @@ type Context interface {
 
 type HandlerFunc func(ctx Context)
 
-type HandlerChain []HandlerFunc
+type HandlersChain []HandlerFunc
 
 type ContextImpl struct {
 	sync.Mutex
 	Dispatcher
 	SessionStorage
 
-	handlers HandlerChain
+	handlers HandlersChain
 	index    int
 	request  *pkt.LogicPkt
 	session  Session
@@ -58,8 +58,12 @@ func (c *ContextImpl) Next() {
 		return
 	}
 	f := c.handlers[c.index]
-	f(c)
 	c.index++
+	if f == nil {
+		logger.Warn("arrived unknown HandlerFunc")
+		return
+	}
+	f(c)
 }
 
 func (c *ContextImpl) Header() *pkt.Header {

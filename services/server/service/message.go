@@ -4,8 +4,8 @@ import (
 	"cirno-im/logger"
 	"cirno-im/wire/rpc"
 	"fmt"
+	"github.com/go-resty/resty/v2"
 	"google.golang.org/protobuf/proto"
-	"gopkg.in/resty.v1"
 	"time"
 )
 

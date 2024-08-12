@@ -1,22 +1,26 @@
 package cim
 
 import (
-	"cirno-im/logger"
 	"cirno-im/wire/pkt"
 	"errors"
+	"fmt"
 	"sync"
 )
 
-var ErrSessionLost = errors.New("err: session lost")
+var ErrSessionLost = errors.New("err:session lost")
 
+// Router defines
 type Router struct {
-	handlers *FuncTree
-	pool     sync.Pool
+	middlewares []HandlerFunc
+	handlers    *FuncTree
+	pool        sync.Pool
 }
 
+// NewRouter NewRouter
 func NewRouter() *Router {
 	r := &Router{
-		handlers: NewTree(),
+		handlers:    NewTree(),
+		middlewares: make([]HandlerFunc, 0),
 	}
 	r.pool.New = func() interface{} {
 		return BuildContext()
@@ -24,16 +28,23 @@ func NewRouter() *Router {
 	return r
 }
 
-func (r *Router) Handle(command string, handlers ...HandlerFunc) {
-	r.handlers.Add(command, handlers...)
+func (r *Router) Use(handlers ...HandlerFunc) {
+	r.middlewares = append(r.middlewares, handlers...)
 }
 
+// Handle regist a commond handler
+func (r *Router) Handle(commond string, handlers ...HandlerFunc) {
+	r.handlers.Add(commond, r.middlewares...)
+	r.handlers.Add(commond, handlers...)
+}
+
+// Serve a packet from client
 func (r *Router) Serve(packet *pkt.LogicPkt, dispatcher Dispatcher, cache SessionStorage, session Session) error {
 	if dispatcher == nil {
-		return errors.New("dispacher is nil")
+		return fmt.Errorf("dispatcher is nil")
 	}
 	if cache == nil {
-		return errors.New("cache is nil")
+		return fmt.Errorf("cache is nil")
 	}
 	ctx := r.pool.Get().(*ContextImpl)
 	ctx.reset()
@@ -41,8 +52,9 @@ func (r *Router) Serve(packet *pkt.LogicPkt, dispatcher Dispatcher, cache Sessio
 	ctx.Dispatcher = dispatcher
 	ctx.SessionStorage = cache
 	ctx.session = session
-	logger.Infof("serve,session:%#v", ctx.session)
+
 	r.serveContext(ctx)
+	// Put Context to Pool
 	r.pool.Put(ctx)
 	return nil
 }
@@ -59,24 +71,30 @@ func (r *Router) serveContext(ctx *ContextImpl) {
 }
 
 func handleNoFound(ctx Context) {
-	_ = ctx.Resp(pkt.Status_NotImplemented, &pkt.ErrorResponse{Message: "NoImplemented"})
+	_ = ctx.Resp(pkt.Status_NotImplemented, &pkt.ErrorResponse{Message: "NotImplemented"})
 }
 
+// FuncTree is a tree structure
 type FuncTree struct {
-	nodes map[string]HandlerChain
+	nodes map[string]HandlersChain
 }
 
+// NewTree NewTree
 func NewTree() *FuncTree {
-	return &FuncTree{
-		nodes: map[string]HandlerChain{},
-	}
+	return &FuncTree{nodes: make(map[string]HandlersChain, 10)}
 }
 
+// Add a handler to tree
 func (t *FuncTree) Add(path string, handlers ...HandlerFunc) {
+	if t.nodes[path] == nil {
+		t.nodes[path] = HandlersChain{}
+	}
+
 	t.nodes[path] = append(t.nodes[path], handlers...)
 }
 
-func (t *FuncTree) Get(path string) (HandlerChain, bool) {
+// Get a handler from tree
+func (t *FuncTree) Get(path string) (HandlersChain, bool) {
 	f, ok := t.nodes[path]
 	return f, ok
 }

@@ -79,3 +79,57 @@ cirno-im采用写扩散模型，主要是考虑到逻辑更简单容易实现，
 
 
 
+## 优化方案
+
+### no-copy
+
+对于websocket原先的逻辑来讲，我们是这么写的：
+
+```go	
+	
+	mux := http.NewServeMux()
+	......
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		// step 1
+		rawconn, _, _, err := ws.UpgradeHTTP(r, w)
+		if err != nil {
+			resp(w, http.StatusBadRequest, err.Error())
+			return
+		}
+		.........
+
+	})
+	return http.ListenAndServe(s.listen, mux)
+```
+
+可以看到，我们是通过直接创建了一个http mux进行协议升级的，但是对于golang原生的http包，生成request和response的核心方法，存在一次拷贝，对于分布式im这种大规模数据的场景下，应该尽量避免所有不该有的拷贝，以免造成多余的性能以及空间开销。
+
+使用`gobwas/ws`这个websocket库，可以在tcp的基础中，直接解析http头，跳过了go默认的http包中的逻辑，这样就可以减少额外的空间开销。
+
+最后的核心逻辑就变成这样了，直接在tcp层面对websocket进行升级。
+
+```go	
+for {
+		rawconn, err := lst.Accept()
+		if err != nil {
+			rawconn.Close()
+			log.Warn(err)
+			continue
+		}
+         _, err = ws.Upgrade(rawconn)  <-- 升级
+		if err != nil {
+			rawconn.Close()
+			log.Warn(err)
+			continue
+		}
+		go func(rawconn net.Conn) {
+			conn := NewConn(rawconn)
+			...
+		}(rawconn)
+	}
+```
+
+另外，如果在tcp层面对websocket的进行升级，我们就会发现，其实对于tcp以及websocket协议进行消息传输时的逻辑，在现在看来就大差不差了。唯一的不同就是websocket多一步upgrade的操作，后续的连接操作就全部一样了。所以其实可以进一步抽象，将tcp和websocket的server的核心逻辑抽象成一个统一的deafult_server。
+
+
+

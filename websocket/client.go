@@ -5,6 +5,7 @@ import (
 	"cirno-im/constants"
 	"cirno-im/logger"
 	"errors"
+	"fmt"
 	"github.com/gobwas/ws"
 	"github.com/gobwas/ws/wsutil"
 	"net"
@@ -14,12 +15,14 @@ import (
 	"time"
 )
 
+// ClientOptions ClientOptions
 type ClientOptions struct {
-	Heartbeat time.Duration
-	ReadWait  time.Duration
-	WriteWait time.Duration
+	Heartbeat time.Duration //登录超时
+	ReadWait  time.Duration //读超时
+	WriteWait time.Duration //写超时
 }
 
+// Client is a websocket implement of the terminal
 type Client struct {
 	sync.Mutex
 	cim.Dialer
@@ -32,149 +35,158 @@ type Client struct {
 	Meta    map[string]string
 }
 
-func NewClient(id, name string, meta map[string]string, opts ClientOptions) cim.Client {
+// NewClient NewClient
+func NewClient(id, name string, opts ClientOptions) cim.Client {
+	return NewClientWithProps(id, name, make(map[string]string), opts)
+}
+
+func NewClientWithProps(id, name string, meta map[string]string, opts ClientOptions) cim.Client {
 	if opts.WriteWait == 0 {
 		opts.WriteWait = constants.DefaultWriteWait
 	}
 	if opts.ReadWait == 0 {
 		opts.ReadWait = constants.DefaultReadWait
 	}
-	client := &Client{
+
+	cli := &Client{
 		id:      id,
 		name:    name,
 		options: opts,
 		Meta:    meta,
 	}
-	return client
+	return cli
 }
 
-func (cli *Client) ID() string {
-	return cli.id
+func (c *Client) ID() string {
+	return c.id
 }
 
-func (cli *Client) Name() string {
-	return cli.name
+func (c *Client) Name() string {
+	return c.name
 }
 
-func (cli *Client) Connect(addr string) error {
+// Connect to server
+func (c *Client) Connect(addr string) error {
 	_, err := url.Parse(addr)
 	if err != nil {
 		return err
 	}
-	if !atomic.CompareAndSwapInt32(&cli.state, 0, 1) {
-		return errors.New("client has connected")
+	if !atomic.CompareAndSwapInt32(&c.state, 0, 1) {
+		return fmt.Errorf("client has connected")
 	}
-	conn, err := cli.Dialer.DialAndHandshake(cim.DialerContext{
-		Id:      cli.id,
-		Name:    cli.name,
+	// step 1 拨号及握手
+	conn, err := c.Dialer.DialAndHandshake(cim.DialerContext{
+		Id:      c.id,
+		Name:    c.name,
 		Address: addr,
 		Timeout: constants.DefaultLoginWait,
 	})
 	if err != nil {
-		atomic.CompareAndSwapInt32(&cli.state, 1, 0)
+		atomic.CompareAndSwapInt32(&c.state, 1, 0)
 		return err
 	}
 	if conn == nil {
-		return errors.New("conn is nil")
+		return fmt.Errorf("conn is nil")
 	}
-	cli.conn = conn
-	if cli.options.Heartbeat > 0 {
+	c.conn = conn
+
+	if c.options.Heartbeat > 0 {
 		go func() {
-			err = cli.heartbeatLoop(conn)
+			err := c.heartbeatloop(conn)
 			if err != nil {
-				logger.Error("heartbeat loop err:", err)
+				logger.Error("heartbeatloop stopped ", err)
 			}
 		}()
 	}
 	return nil
 }
 
-func (cli *Client) SetDialer(dialer cim.Dialer) {
-	cli.Dialer = dialer
+// SetDialer 设置握手逻辑
+func (c *Client) SetDialer(dialer cim.Dialer) {
+	c.Dialer = dialer
 }
 
-func (cli *Client) Send(payload []byte) error {
-	if atomic.LoadInt32(&cli.state) == 0 {
-		return errors.New("connection is nil")
+// Send data to connection
+func (c *Client) Send(payload []byte) error {
+	if atomic.LoadInt32(&c.state) == 0 {
+		return fmt.Errorf("connection is nil")
 	}
-	cli.Lock()
-	defer cli.Unlock()
-	err := cli.conn.SetWriteDeadline(time.Now().Add(cli.options.WriteWait))
+	c.Lock()
+	defer c.Unlock()
+	err := c.conn.SetWriteDeadline(time.Now().Add(c.options.WriteWait))
 	if err != nil {
 		return err
 	}
-	return wsutil.WriteClientMessage(cli.conn, ws.OpBinary, payload)
+	// 客户端消息需要使用MASK
+	return wsutil.WriteClientMessage(c.conn, ws.OpBinary, payload)
 }
 
-func (cli *Client) Close() {
-	cli.once.Do(func() {
-		if cli.conn != nil {
+// Close 关闭
+func (c *Client) Close() {
+	c.once.Do(func() {
+		if c.conn == nil {
 			return
 		}
-		err := wsutil.WriteClientMessage(cli.conn, ws.OpClose, nil)
-		if err != nil {
-			logger.Error("write close:", err)
-			return
-		}
-		err = cli.conn.Close()
-		if err != nil {
-			logger.Error("close conn:", err)
-			return
-		}
+		// graceful close connection
+		_ = wsutil.WriteClientMessage(c.conn, ws.OpClose, nil)
+
+		c.conn.Close()
+		atomic.CompareAndSwapInt32(&c.state, 1, 0)
 	})
 }
 
-func (cli *Client) Read() (cim.Frame, error) {
-	if cli.conn == nil {
+// Read a frame ,this function is not safely for concurrent
+func (c *Client) Read() (cim.Frame, error) {
+	if c.conn == nil {
 		return nil, errors.New("connection is nil")
 	}
-	if cli.options.Heartbeat > 0 {
-		err := cli.conn.SetReadDeadline(time.Now().Add(cli.options.ReadWait))
-		if err != nil {
-			return nil, err
-		}
+	if c.options.Heartbeat > 0 {
+		_ = c.conn.SetReadDeadline(time.Now().Add(c.options.ReadWait))
 	}
-	frame, err := ws.ReadFrame(cli.conn)
+	frame, err := ws.ReadFrame(c.conn)
 	if err != nil {
 		return nil, err
 	}
 	if frame.Header.OpCode == ws.OpClose {
-		return nil, errors.New("remote side closed the channel")
+		return nil, errors.New("remote side close the channel")
 	}
-	return &Frame{raw: frame}, nil
+	return &Frame{
+		raw: frame,
+	}, nil
 }
 
-func (cli *Client) heartbeatLoop(conn net.Conn) error {
-	ticker := time.NewTicker(cli.options.Heartbeat)
-	for range ticker.C {
-		if err := cli.ping(conn); err != nil {
+func (c *Client) heartbeatloop(conn net.Conn) error {
+	tick := time.NewTicker(c.options.Heartbeat)
+	for range tick.C {
+		// 发送一个ping的心跳包给服务端
+		if err := c.ping(conn); err != nil {
 			return err
 		}
 	}
 	return nil
 }
 
-func (cli *Client) ping(conn net.Conn) error {
-	cli.Lock()
-	defer cli.Unlock()
-	err := conn.SetWriteDeadline(time.Now().Add(cli.options.WriteWait))
+func (c *Client) ping(conn net.Conn) error {
+	c.Lock()
+	defer c.Unlock()
+	err := conn.SetWriteDeadline(time.Now().Add(c.options.WriteWait))
 	if err != nil {
 		return err
 	}
-	logger.Tracef("%s send ping to server", cli.id)
+	logger.Tracef("%s send ping to server", c.id)
 	return wsutil.WriteClientMessage(conn, ws.OpPing, nil)
 }
 
 // ID return id
-func (cli *Client) ServiceID() string {
-	return cli.id
+func (c *Client) ServiceID() string {
+	return c.id
 }
 
 // Name Name
-func (cli *Client) ServiceName() string {
-	return cli.name
+func (c *Client) ServiceName() string {
+	return c.name
 }
 
-func (cli *Client) GetMetadata() map[string]string {
-	return cli.Meta
+func (c *Client) GetMetadata() map[string]string {
+	return c.Meta
 }

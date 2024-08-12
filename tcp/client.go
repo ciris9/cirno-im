@@ -55,11 +55,11 @@ func NewClientWithProps(id, name string, meta map[string]string, opts ClientOpti
 }
 
 func (c *Client) ID() string {
-	return "client id"
+	return c.id
 }
 
 func (c *Client) Name() string {
-	return "client name"
+	return c.name
 }
 
 // Connect to server

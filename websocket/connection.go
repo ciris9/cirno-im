@@ -1,6 +1,7 @@
 package websocket
 
 import (
+	"bufio"
 	cim "cirno-im"
 	"github.com/gobwas/ws"
 	"net"
@@ -33,10 +34,24 @@ func (f *Frame) GetPayload() []byte {
 
 type WsConn struct {
 	net.Conn
+	rd *bufio.Reader
+	wr *bufio.Writer
 }
 
 func NewConn(conn net.Conn) *WsConn {
-	return &WsConn{conn}
+	return &WsConn{
+		Conn: conn,
+		rd:   bufio.NewReaderSize(conn, 4096),
+		wr:   bufio.NewWriterSize(conn, 1024),
+	}
+}
+
+func NewConnWithRW(conn net.Conn, rd *bufio.Reader, wr *bufio.Writer) *WsConn {
+	return &WsConn{
+		Conn: conn,
+		rd:   rd,
+		wr:   wr,
+	}
 }
 
 func (c *WsConn) ReadFrame() (cim.Frame, error) {

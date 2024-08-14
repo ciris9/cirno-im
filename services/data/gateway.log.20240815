@@ -14,3 +14,1014 @@ time="2024-08-15T02:50:07+08:00" level=debug msg="load service: [Id:chat01,Name:
 time="2024-08-15T02:50:07+08:00" level=info msg="Watch a new services: Id:chat01,Name:chat,Address:localhost,Port:8005,Ns:,Tags:[server],Meta:map[protocol:tcp]" func=connectToService module=container
 time="2024-08-15T02:50:07+08:00" level=info msg="send req ServiceID:\"gateway02\""
 time="2024-08-15T02:50:07+08:00" level=info msg="readLoop started of chat01 chat" func=readLoop module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test1_6\"  sequence:10  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test9_2\"  sequence:3  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test5_8\"  sequence:11  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test3_10\"  sequence:4  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test8_3\"  sequence:2  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test5_8 RemoteAddr: [::1]:50345"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test6_4\"  sequence:5  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test1_6 RemoteAddr: [::1]:50354"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test3_10 RemoteAddr: [::1]:50347"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test2_7\"  sequence:9  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test10_11\"  sequence:8  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test4_5\"  sequence:6  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test7_9\"  sequence:7  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test8_3 RemoteAddr: [::1]:50349"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test2_7 RemoteAddr: [::1]:50353"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test6_4 RemoteAddr: [::1]:50352"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test4_5 RemoteAddr: [::1]:50351"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test7_9 RemoteAddr: [::1]:50348"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test10_11 RemoteAddr: [::1]:50346"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test9_2 RemoteAddr: [::1]:50350"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test2_7] header:command:\"login.signin\"  channelID:\"gateway02_test2_7\"  sequence:9  flag:Response body:33bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test8_3] header:command:\"login.signin\"  channelID:\"gateway02_test8_3\"  sequence:2  flag:Response body:33bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test11_12\"  sequence:12  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test11_12 RemoteAddr: [::1]:50355"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test12_13\"  sequence:13  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test12_13 RemoteAddr: [::1]:50356"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test11_12] header:command:\"login.signin\"  channelID:\"gateway02_test11_12\"  sequence:12  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test12_13] header:command:\"login.signin\"  channelID:\"gateway02_test12_13\"  sequence:13  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test13_14\"  sequence:14  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test13_14 RemoteAddr: [::1]:50357"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test14_15\"  sequence:15  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test14_15 RemoteAddr: [::1]:50363"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test10_11] header:command:\"login.signin\"  channelID:\"gateway02_test10_11\"  sequence:8  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test3_10] header:command:\"login.signin\"  channelID:\"gateway02_test3_10\"  sequence:4  flag:Response body:34bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test13_14] header:command:\"login.signin\"  channelID:\"gateway02_test13_14\"  sequence:14  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test1_6] header:command:\"login.signin\"  channelID:\"gateway02_test1_6\"  sequence:10  flag:Response body:33bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test4_5] header:command:\"login.signin\"  channelID:\"gateway02_test4_5\"  sequence:6  flag:Response body:33bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test9_2] header:command:\"login.signin\"  channelID:\"gateway02_test9_2\"  sequence:3  flag:Response body:33bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test7_9] header:command:\"login.signin\"  channelID:\"gateway02_test7_9\"  sequence:7  flag:Response body:33bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test6_4] header:command:\"login.signin\"  channelID:\"gateway02_test6_4\"  sequence:5  flag:Response body:33bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test5_8] header:command:\"login.signin\"  channelID:\"gateway02_test5_8\"  sequence:11  flag:Response body:33bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test14_15] header:command:\"login.signin\"  channelID:\"gateway02_test14_15\"  sequence:15  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test20_20\"  sequence:22  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test18_21\"  sequence:20  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test15_18\"  sequence:18  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test18_21 RemoteAddr: [::1]:50381"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test15_18 RemoteAddr: [::1]:50379"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test22_22\"  sequence:21  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test16_16\"  sequence:16  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test19_19\"  sequence:19  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test17_17\"  sequence:17  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test21_23\"  sequence:23  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test23_24\"  sequence:25  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test18_21] header:command:\"login.signin\"  channelID:\"gateway02_test18_21\"  sequence:20  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test24_25\"  sequence:24  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test20_20 RemoteAddr: [::1]:50383"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test19_19 RemoteAddr: [::1]:50380"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test17_17 RemoteAddr: [::1]:50377"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test21_23 RemoteAddr: [::1]:50384"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test23_24 RemoteAddr: [::1]:50386"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test22_22 RemoteAddr: [::1]:50382"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test24_25 RemoteAddr: [::1]:50385"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test20_20] header:command:\"login.signin\"  channelID:\"gateway02_test20_20\"  sequence:22  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test16_16 RemoteAddr: [::1]:50378"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test15_18] header:command:\"login.signin\"  channelID:\"gateway02_test15_18\"  sequence:18  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test25_26\"  sequence:26  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test22_22] header:command:\"login.signin\"  channelID:\"gateway02_test22_22\"  sequence:21  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test25_26 RemoteAddr: [::1]:50387"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test16_16] header:command:\"login.signin\"  channelID:\"gateway02_test16_16\"  sequence:16  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test19_19] header:command:\"login.signin\"  channelID:\"gateway02_test19_19\"  sequence:19  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test26_27\"  sequence:27  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test21_23] header:command:\"login.signin\"  channelID:\"gateway02_test21_23\"  sequence:23  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test17_17] header:command:\"login.signin\"  channelID:\"gateway02_test17_17\"  sequence:17  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test29_29\"  sequence:31  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test24_25] header:command:\"login.signin\"  channelID:\"gateway02_test24_25\"  sequence:24  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test28_28\"  sequence:28  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test29_29 RemoteAddr: [::1]:50392"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test28_28 RemoteAddr: [::1]:50389"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test23_24] header:command:\"login.signin\"  channelID:\"gateway02_test23_24\"  sequence:25  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test30_31\"  sequence:30  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test26_27 RemoteAddr: [::1]:50388"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test31_32\"  sequence:33  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test25_26] header:command:\"login.signin\"  channelID:\"gateway02_test25_26\"  sequence:26  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test27_30\"  sequence:29  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test33_33\"  sequence:34  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test31_32 RemoteAddr: [::1]:50394"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test26_27] header:command:\"login.signin\"  channelID:\"gateway02_test26_27\"  sequence:27  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test33_33 RemoteAddr: [::1]:50395"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test29_29] header:command:\"login.signin\"  channelID:\"gateway02_test29_29\"  sequence:31  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test32_34\"  sequence:32  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test30_31 RemoteAddr: [::1]:50391"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test32_34 RemoteAddr: [::1]:50393"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test27_30 RemoteAddr: [::1]:50390"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test28_28] header:command:\"login.signin\"  channelID:\"gateway02_test28_28\"  sequence:28  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test35_35\"  sequence:36  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test36_37\"  sequence:37  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test31_32] header:command:\"login.signin\"  channelID:\"gateway02_test31_32\"  sequence:33  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test36_37 RemoteAddr: [::1]:50398"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test34_36\"  sequence:35  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test35_35 RemoteAddr: [::1]:50397"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test34_36 RemoteAddr: [::1]:50396"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test30_31] header:command:\"login.signin\"  channelID:\"gateway02_test30_31\"  sequence:30  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test38_39\"  sequence:39  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test37_38\"  sequence:38  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test38_39 RemoteAddr: [::1]:50400"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test37_38 RemoteAddr: [::1]:50399"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test27_30] header:command:\"login.signin\"  channelID:\"gateway02_test27_30\"  sequence:29  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test39_40\"  sequence:40  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test33_33] header:command:\"login.signin\"  channelID:\"gateway02_test33_33\"  sequence:34  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test39_40 RemoteAddr: [::1]:50401"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test32_34] header:command:\"login.signin\"  channelID:\"gateway02_test32_34\"  sequence:32  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test36_37] header:command:\"login.signin\"  channelID:\"gateway02_test36_37\"  sequence:37  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test40_41\"  sequence:41  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test41_42\"  sequence:42  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test35_35] header:command:\"login.signin\"  channelID:\"gateway02_test35_35\"  sequence:36  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test40_41 RemoteAddr: [::1]:50402"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test42_44\"  sequence:44  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test41_42 RemoteAddr: [::1]:50403"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test34_36] header:command:\"login.signin\"  channelID:\"gateway02_test34_36\"  sequence:35  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test43_43\"  sequence:43  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test42_44 RemoteAddr: [::1]:50405"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test45_46\"  sequence:46  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test38_39] header:command:\"login.signin\"  channelID:\"gateway02_test38_39\"  sequence:39  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test45_46 RemoteAddr: [::1]:50407"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test43_43 RemoteAddr: [::1]:50404"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test44_45\"  sequence:45  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test46_47\"  sequence:47  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test37_38] header:command:\"login.signin\"  channelID:\"gateway02_test37_38\"  sequence:38  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test44_45 RemoteAddr: [::1]:50406"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test46_47 RemoteAddr: [::1]:50408"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test39_40] header:command:\"login.signin\"  channelID:\"gateway02_test39_40\"  sequence:40  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test47_48\"  sequence:48  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test40_41] header:command:\"login.signin\"  channelID:\"gateway02_test40_41\"  sequence:41  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test47_48 RemoteAddr: [::1]:50409"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test41_42] header:command:\"login.signin\"  channelID:\"gateway02_test41_42\"  sequence:42  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test48_49\"  sequence:49  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test42_44] header:command:\"login.signin\"  channelID:\"gateway02_test42_44\"  sequence:44  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test48_49 RemoteAddr: [::1]:50410"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test49_50\"  sequence:50  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test50_51\"  sequence:51  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test43_43] header:command:\"login.signin\"  channelID:\"gateway02_test43_43\"  sequence:43  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test51_52\"  sequence:52  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test49_50 RemoteAddr: [::1]:50412"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test50_51 RemoteAddr: [::1]:50411"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test45_46] header:command:\"login.signin\"  channelID:\"gateway02_test45_46\"  sequence:46  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test52_53\"  sequence:53  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test51_52 RemoteAddr: [::1]:50413"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test44_45] header:command:\"login.signin\"  channelID:\"gateway02_test44_45\"  sequence:45  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test52_53 RemoteAddr: [::1]:50414"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test46_47] header:command:\"login.signin\"  channelID:\"gateway02_test46_47\"  sequence:47  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test47_48] header:command:\"login.signin\"  channelID:\"gateway02_test47_48\"  sequence:48  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test48_49] header:command:\"login.signin\"  channelID:\"gateway02_test48_49\"  sequence:49  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test53_55\"  sequence:55  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test49_50] header:command:\"login.signin\"  channelID:\"gateway02_test49_50\"  sequence:50  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test53_55 RemoteAddr: [::1]:50416"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test54_54\"  sequence:54  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test56_56\"  sequence:57  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test50_51] header:command:\"login.signin\"  channelID:\"gateway02_test50_51\"  sequence:51  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test56_56 RemoteAddr: [::1]:50418"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test55_57\"  sequence:56  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test54_54 RemoteAddr: [::1]:50415"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test58_58\"  sequence:58  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test57_59\"  sequence:59  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test55_57 RemoteAddr: [::1]:50417"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test51_52] header:command:\"login.signin\"  channelID:\"gateway02_test51_52\"  sequence:52  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test58_58 RemoteAddr: [::1]:50420"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test57_59 RemoteAddr: [::1]:50419"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test59_60\"  sequence:60  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test52_53] header:command:\"login.signin\"  channelID:\"gateway02_test52_53\"  sequence:53  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test60_61\"  sequence:61  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test59_60 RemoteAddr: [::1]:50421"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test60_61 RemoteAddr: [::1]:50422"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test53_55] header:command:\"login.signin\"  channelID:\"gateway02_test53_55\"  sequence:55  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test54_54] header:command:\"login.signin\"  channelID:\"gateway02_test54_54\"  sequence:54  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test61_62\"  sequence:62  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test56_56] header:command:\"login.signin\"  channelID:\"gateway02_test56_56\"  sequence:57  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test55_57] header:command:\"login.signin\"  channelID:\"gateway02_test55_57\"  sequence:56  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test62_63\"  sequence:64  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test58_58] header:command:\"login.signin\"  channelID:\"gateway02_test58_58\"  sequence:58  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test61_62 RemoteAddr: [::1]:50423"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test63_64\"  sequence:63  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test62_63 RemoteAddr: [::1]:50425"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test65_66\"  sequence:66  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test64_65\"  sequence:65  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test66_67\"  sequence:67  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test63_64 RemoteAddr: [::1]:50424"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test57_59] header:command:\"login.signin\"  channelID:\"gateway02_test57_59\"  sequence:59  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test65_66 RemoteAddr: [::1]:50426"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test64_65 RemoteAddr: [::1]:50427"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test66_67 RemoteAddr: [::1]:50428"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test59_60] header:command:\"login.signin\"  channelID:\"gateway02_test59_60\"  sequence:60  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test67_68\"  sequence:68  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test60_61] header:command:\"login.signin\"  channelID:\"gateway02_test60_61\"  sequence:61  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test67_68 RemoteAddr: [::1]:50429"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test68_69\"  sequence:69  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test61_62] header:command:\"login.signin\"  channelID:\"gateway02_test61_62\"  sequence:62  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test68_69 RemoteAddr: [::1]:50430"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test62_63] header:command:\"login.signin\"  channelID:\"gateway02_test62_63\"  sequence:64  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test63_64] header:command:\"login.signin\"  channelID:\"gateway02_test63_64\"  sequence:63  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test69_70\"  sequence:70  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test65_66] header:command:\"login.signin\"  channelID:\"gateway02_test65_66\"  sequence:66  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test69_70 RemoteAddr: [::1]:50432"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test71_72\"  sequence:73  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test64_65] header:command:\"login.signin\"  channelID:\"gateway02_test64_65\"  sequence:65  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test72_73\"  sequence:72  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test73_74\"  sequence:74  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test70_71\"  sequence:71  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test71_72 RemoteAddr: [::1]:50434"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test70_71 RemoteAddr: [::1]:50431"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test73_74 RemoteAddr: [::1]:50435"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test66_67] header:command:\"login.signin\"  channelID:\"gateway02_test66_67\"  sequence:67  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test72_73 RemoteAddr: [::1]:50433"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test74_75\"  sequence:75  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test67_68] header:command:\"login.signin\"  channelID:\"gateway02_test67_68\"  sequence:68  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test75_76\"  sequence:76  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test74_75 RemoteAddr: [::1]:50436"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test68_69] header:command:\"login.signin\"  channelID:\"gateway02_test68_69\"  sequence:69  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test75_76 RemoteAddr: [::1]:50437"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test76_77\"  sequence:77  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test76_77 RemoteAddr: [::1]:50438"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test69_70] header:command:\"login.signin\"  channelID:\"gateway02_test69_70\"  sequence:70  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test72_73] header:command:\"login.signin\"  channelID:\"gateway02_test72_73\"  sequence:72  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test77_78\"  sequence:78  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test70_71] header:command:\"login.signin\"  channelID:\"gateway02_test70_71\"  sequence:71  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test77_78 RemoteAddr: [::1]:50439"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test71_72] header:command:\"login.signin\"  channelID:\"gateway02_test71_72\"  sequence:73  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test78_79\"  sequence:79  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test73_74] header:command:\"login.signin\"  channelID:\"gateway02_test73_74\"  sequence:74  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test79_81\"  sequence:81  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test74_75] header:command:\"login.signin\"  channelID:\"gateway02_test74_75\"  sequence:75  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test79_81 RemoteAddr: [::1]:50442"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test78_79 RemoteAddr: [::1]:50440"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test75_76] header:command:\"login.signin\"  channelID:\"gateway02_test75_76\"  sequence:76  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test81_82\"  sequence:82  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test80_80\"  sequence:80  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test81_82 RemoteAddr: [::1]:50444"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test76_77] header:command:\"login.signin\"  channelID:\"gateway02_test76_77\"  sequence:77  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test77_78] header:command:\"login.signin\"  channelID:\"gateway02_test77_78\"  sequence:78  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test80_80 RemoteAddr: [::1]:50441"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test84_83\"  sequence:84  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test84_83 RemoteAddr: [::1]:50445"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test78_79] header:command:\"login.signin\"  channelID:\"gateway02_test78_79\"  sequence:79  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test85_84\"  sequence:86  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test82_85\"  sequence:83  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test86_86\"  sequence:87  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test85_84 RemoteAddr: [::1]:50447"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test86_86 RemoteAddr: [::1]:50448"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test82_85 RemoteAddr: [::1]:50443"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test87_87\"  sequence:88  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test83_88\"  sequence:85  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test79_81] header:command:\"login.signin\"  channelID:\"gateway02_test79_81\"  sequence:81  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test81_82] header:command:\"login.signin\"  channelID:\"gateway02_test81_82\"  sequence:82  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test88_89\"  sequence:89  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test83_88 RemoteAddr: [::1]:50446"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test87_87 RemoteAddr: [::1]:50449"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test80_80] header:command:\"login.signin\"  channelID:\"gateway02_test80_80\"  sequence:80  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test88_89 RemoteAddr: [::1]:50450"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test89_90\"  sequence:90  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test89_90 RemoteAddr: [::1]:50451"
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test91_91\"  sequence:91  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test90_92\"  sequence:92  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test91_91 RemoteAddr: [::1]:50452"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test90_92 RemoteAddr: [::1]:50453"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test84_83] header:command:\"login.signin\"  channelID:\"gateway02_test84_83\"  sequence:84  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test91_91] header:command:\"login.signin\"  channelID:\"gateway02_test91_91\"  sequence:91  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test83_88] header:command:\"login.signin\"  channelID:\"gateway02_test83_88\"  sequence:85  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test86_86] header:command:\"login.signin\"  channelID:\"gateway02_test86_86\"  sequence:87  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test89_90] header:command:\"login.signin\"  channelID:\"gateway02_test89_90\"  sequence:90  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test82_85] header:command:\"login.signin\"  channelID:\"gateway02_test82_85\"  sequence:83  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test87_87] header:command:\"login.signin\"  channelID:\"gateway02_test87_87\"  sequence:88  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test90_92] header:command:\"login.signin\"  channelID:\"gateway02_test90_92\"  sequence:92  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test88_89] header:command:\"login.signin\"  channelID:\"gateway02_test88_89\"  sequence:89  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test85_84] header:command:\"login.signin\"  channelID:\"gateway02_test85_84\"  sequence:86  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test96_97\"  sequence:96  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test98_96\"  sequence:95  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test98_96 RemoteAddr: [::1]:50457"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test100_98\"  sequence:101  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test92_93\"  sequence:93  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test100_98 RemoteAddr: [::1]:50462"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test99_99\"  sequence:100  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test94_94\"  sequence:99  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test94_94 RemoteAddr: [::1]:50454"
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test93_95\"  sequence:94  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test96_97 RemoteAddr: [::1]:50458"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test93_95 RemoteAddr: [::1]:50455"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test92_93 RemoteAddr: [::1]:50456"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test98_96] header:command:\"login.signin\"  channelID:\"gateway02_test98_96\"  sequence:95  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test99_99 RemoteAddr: [::1]:50461"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test94_94] header:command:\"login.signin\"  channelID:\"gateway02_test94_94\"  sequence:99  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg=enter ServiceID=gateway02 handler=Accept module=Handler
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test92_93] header:command:\"login.signin\"  channelID:\"gateway02_test92_93\"  sequence:93  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test100_98] header:command:\"login.signin\"  channelID:\"gateway02_test100_98\"  sequence:101  flag:Response body:36bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test97_100\"  sequence:97  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="forward message to chat01 with command:\"login.signin\"  channelID:\"gateway02_test95_101\"  sequence:98  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test96_97] header:command:\"login.signin\"  channelID:\"gateway02_test96_97\"  sequence:96  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test95_101 RemoteAddr: [::1]:50460"
+time="2024-08-15T02:51:57+08:00" level=info msg="accept channel - ID: gateway02_test97_100 RemoteAddr: [::1]:50459"
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test99_99] header:command:\"login.signin\"  channelID:\"gateway02_test99_99\"  sequence:100  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test93_95] header:command:\"login.signin\"  channelID:\"gateway02_test93_95\"  sequence:94  flag:Response body:35bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test97_100] header:command:\"login.signin\"  channelID:\"gateway02_test97_100\"  sequence:97  flag:Response body:36bits" module=container
+time="2024-08-15T02:51:57+08:00" level=debug msg="Push to [gateway02_test95_101] header:command:\"login.signin\"  channelID:\"gateway02_test95_101\"  sequence:98  flag:Response body:36bits" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test1_6" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test1_6\"  sequence:102  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test1_6 writeloop exited" func=writeloop id=gateway02_test1_6 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test7_9" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test3_10" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test9_2" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test1_6] header:command:\"login.signout\"  channelID:\"gateway02_test1_6\"  sequence:102  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test31_32" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test36_37" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test38_39" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test36_37\"  sequence:107  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test46_47" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test31_32\"  sequence:106  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test36_37] header:command:\"login.signout\"  channelID:\"gateway02_test36_37\"  sequence:107  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test60_61" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test60_61\"  sequence:109  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test31_32] header:command:\"login.signout\"  channelID:\"gateway02_test31_32\"  sequence:106  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test71_72" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test75_76" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test68_69" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test3_10\"  sequence:104  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test7_9\"  sequence:103  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test9_2\"  sequence:105  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test56_56" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test31_32 writeloop exited" func=writeloop id=gateway02_test31_32 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test36_37 writeloop exited" func=writeloop id=gateway02_test36_37 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test35_35" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test28_28" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test27_30" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test26_27" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test60_61 writeloop exited" func=writeloop id=gateway02_test60_61 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test75_76\"  sequence:111  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test71_72\"  sequence:110  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test76_77" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test62_63" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test68_69\"  sequence:112  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test60_61] header:command:\"login.signout\"  channelID:\"gateway02_test60_61\"  sequence:109  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test38_39\"  sequence:108  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test39_40" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test46_47\"  sequence:113  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="remote side closed the channel"
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test58_58" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test20_20" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test32_34" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test33_33" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test23_24" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test12_13" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test14_15" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test8_3" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test6_4" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test4_5" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test13_14" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test24_25" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test10_11" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test5_8" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test11_12" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test22_22" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test21_23" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test3_10 writeloop exited" func=writeloop id=gateway02_test3_10 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test16_16" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test17_17" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test29_29" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test18_21" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test19_19" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test2_7" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test7_9 writeloop exited" func=writeloop id=gateway02_test7_9 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test34_36" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test25_26" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test9_2 writeloop exited" func=writeloop id=gateway02_test9_2 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test30_31" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test72_73" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test44_45" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test41_42" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test43_43" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test42_44" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test40_41" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test56_56\"  sequence:114  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test55_57" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test45_46" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test47_48" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test48_49" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test35_35\"  sequence:115  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test49_50" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test50_51" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test51_52" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test28_28\"  sequence:116  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test52_53" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test27_30\"  sequence:117  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test15_18" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test53_55" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test54_54" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test26_27\"  sequence:118  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test37_38" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test61_62" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test59_60" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test57_59" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test66_67" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test64_65" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test65_66" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test77_78" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test67_68" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test75_76 writeloop exited" func=writeloop id=gateway02_test75_76 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test81_82" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test69_70" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test70_71" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test73_74" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test74_75" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test71_72 writeloop exited" func=writeloop id=gateway02_test71_72 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test83_88" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test78_79" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test80_80" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test76_77\"  sequence:119  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test84_83" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test82_85" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test79_81" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test85_84" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test86_86" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test62_63\"  sequence:120  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test68_69 writeloop exited" func=writeloop id=gateway02_test68_69 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test87_87" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test88_89" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test38_39 writeloop exited" func=writeloop id=gateway02_test38_39 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test89_90" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test90_92" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test39_40\"  sequence:121  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test91_91" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test92_93" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test46_47 writeloop exited" func=writeloop id=gateway02_test46_47 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test93_95" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test94_94" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test95_101" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test96_97" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test97_100" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test98_96" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test99_99" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test100_98" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=info msg="disconnect gateway02_test63_64" pkg=serv services=gateway
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test58_58\"  sequence:122  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test20_20\"  sequence:123  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test32_34\"  sequence:124  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test33_33\"  sequence:125  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test23_24\"  sequence:126  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test12_13\"  sequence:127  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test14_15\"  sequence:128  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test8_3\"  sequence:129  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test6_4\"  sequence:130  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test4_5\"  sequence:131  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test13_14\"  sequence:132  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test24_25\"  sequence:133  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test10_11\"  sequence:134  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test5_8\"  sequence:135  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test11_12\"  sequence:136  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test29_29\"  sequence:141  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test22_22\"  sequence:137  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test21_23\"  sequence:138  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test16_16\"  sequence:139  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test17_17\"  sequence:140  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test18_21\"  sequence:142  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test19_19\"  sequence:143  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test34_36\"  sequence:145  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test2_7\"  sequence:144  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test25_26\"  sequence:146  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test30_31\"  sequence:147  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test72_73\"  sequence:148  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test41_42\"  sequence:150  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test44_45\"  sequence:149  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test42_44\"  sequence:152  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test43_43\"  sequence:151  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test40_41\"  sequence:153  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test56_56 writeloop exited" func=writeloop id=gateway02_test56_56 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test55_57\"  sequence:154  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test45_46\"  sequence:155  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test47_48\"  sequence:156  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test48_49\"  sequence:157  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test35_35 writeloop exited" func=writeloop id=gateway02_test35_35 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test49_50\"  sequence:158  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test50_51\"  sequence:159  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test28_28 writeloop exited" func=writeloop id=gateway02_test28_28 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test51_52\"  sequence:160  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test52_53\"  sequence:161  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test27_30 writeloop exited" func=writeloop id=gateway02_test27_30 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test15_18\"  sequence:162  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test53_55\"  sequence:163  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test54_54\"  sequence:164  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test26_27 writeloop exited" func=writeloop id=gateway02_test26_27 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test37_38\"  sequence:165  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test61_62\"  sequence:166  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test59_60\"  sequence:167  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test64_65\"  sequence:170  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test57_59\"  sequence:168  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test74_75\"  sequence:178  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test65_66\"  sequence:171  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test77_78\"  sequence:172  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test67_68\"  sequence:173  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test81_82\"  sequence:174  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test69_70\"  sequence:175  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test70_71\"  sequence:176  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test73_74\"  sequence:177  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test84_83\"  sequence:182  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test83_88\"  sequence:179  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test78_79\"  sequence:180  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test80_80\"  sequence:181  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test82_85\"  sequence:183  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test76_77 writeloop exited" func=writeloop id=gateway02_test76_77 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test79_81\"  sequence:184  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test85_84\"  sequence:185  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test66_67\"  sequence:169  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test62_63 writeloop exited" func=writeloop id=gateway02_test62_63 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test86_86\"  sequence:186  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test87_87\"  sequence:187  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test88_89\"  sequence:188  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test3_10] header:command:\"login.signout\"  channelID:\"gateway02_test3_10\"  sequence:104  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test89_90\"  sequence:189  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test90_92\"  sequence:190  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test39_40 writeloop exited" func=writeloop id=gateway02_test39_40 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test91_91\"  sequence:191  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test92_93\"  sequence:192  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test93_95\"  sequence:193  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test94_94\"  sequence:194  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test95_101\"  sequence:195  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test96_97\"  sequence:196  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test97_100\"  sequence:197  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test98_96\"  sequence:198  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test99_99\"  sequence:199  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test100_98\"  sequence:200  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="forward message to chat01 with command:\"login.signout\"  channelID:\"gateway02_test63_64\"  sequence:201  meta:{key:\"dest.server\"  value:\"gateway02\"  type:string}" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test58_58 writeloop exited" func=writeloop id=gateway02_test58_58 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test20_20 writeloop exited" func=writeloop id=gateway02_test20_20 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test32_34 writeloop exited" func=writeloop id=gateway02_test32_34 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test33_33 writeloop exited" func=writeloop id=gateway02_test33_33 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test23_24 writeloop exited" func=writeloop id=gateway02_test23_24 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test12_13 writeloop exited" func=writeloop id=gateway02_test12_13 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test14_15 writeloop exited" func=writeloop id=gateway02_test14_15 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test8_3 writeloop exited" func=writeloop id=gateway02_test8_3 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test6_4 writeloop exited" func=writeloop id=gateway02_test6_4 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test4_5 writeloop exited" func=writeloop id=gateway02_test4_5 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test13_14 writeloop exited" func=writeloop id=gateway02_test13_14 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test24_25 writeloop exited" func=writeloop id=gateway02_test24_25 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test10_11 writeloop exited" func=writeloop id=gateway02_test10_11 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test11_12 writeloop exited" func=writeloop id=gateway02_test11_12 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test29_29 writeloop exited" func=writeloop id=gateway02_test29_29 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test5_8 writeloop exited" func=writeloop id=gateway02_test5_8 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test22_22 writeloop exited" func=writeloop id=gateway02_test22_22 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test21_23 writeloop exited" func=writeloop id=gateway02_test21_23 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test16_16 writeloop exited" func=writeloop id=gateway02_test16_16 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test18_21 writeloop exited" func=writeloop id=gateway02_test18_21 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test17_17 writeloop exited" func=writeloop id=gateway02_test17_17 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test34_36 writeloop exited" func=writeloop id=gateway02_test34_36 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test19_19 writeloop exited" func=writeloop id=gateway02_test19_19 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test2_7 writeloop exited" func=writeloop id=gateway02_test2_7 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test25_26 writeloop exited" func=writeloop id=gateway02_test25_26 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test30_31 writeloop exited" func=writeloop id=gateway02_test30_31 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test72_73 writeloop exited" func=writeloop id=gateway02_test72_73 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test44_45 writeloop exited" func=writeloop id=gateway02_test44_45 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test41_42 writeloop exited" func=writeloop id=gateway02_test41_42 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test43_43 writeloop exited" func=writeloop id=gateway02_test43_43 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test42_44 writeloop exited" func=writeloop id=gateway02_test42_44 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test40_41 writeloop exited" func=writeloop id=gateway02_test40_41 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test55_57 writeloop exited" func=writeloop id=gateway02_test55_57 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test45_46 writeloop exited" func=writeloop id=gateway02_test45_46 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test47_48 writeloop exited" func=writeloop id=gateway02_test47_48 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test48_49 writeloop exited" func=writeloop id=gateway02_test48_49 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test49_50 writeloop exited" func=writeloop id=gateway02_test49_50 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test50_51 writeloop exited" func=writeloop id=gateway02_test50_51 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test51_52 writeloop exited" func=writeloop id=gateway02_test51_52 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test52_53 writeloop exited" func=writeloop id=gateway02_test52_53 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test15_18 writeloop exited" func=writeloop id=gateway02_test15_18 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test53_55 writeloop exited" func=writeloop id=gateway02_test53_55 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test54_54 writeloop exited" func=writeloop id=gateway02_test54_54 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test64_65 writeloop exited" func=writeloop id=gateway02_test64_65 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test37_38 writeloop exited" func=writeloop id=gateway02_test37_38 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test61_62 writeloop exited" func=writeloop id=gateway02_test61_62 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test59_60 writeloop exited" func=writeloop id=gateway02_test59_60 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test70_71 writeloop exited" func=writeloop id=gateway02_test70_71 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test57_59 writeloop exited" func=writeloop id=gateway02_test57_59 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test74_75 writeloop exited" func=writeloop id=gateway02_test74_75 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test65_66 writeloop exited" func=writeloop id=gateway02_test65_66 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test77_78 writeloop exited" func=writeloop id=gateway02_test77_78 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test67_68 writeloop exited" func=writeloop id=gateway02_test67_68 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test81_82 writeloop exited" func=writeloop id=gateway02_test81_82 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test69_70 writeloop exited" func=writeloop id=gateway02_test69_70 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test78_79 writeloop exited" func=writeloop id=gateway02_test78_79 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test73_74 writeloop exited" func=writeloop id=gateway02_test73_74 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test84_83 writeloop exited" func=writeloop id=gateway02_test84_83 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test83_88 writeloop exited" func=writeloop id=gateway02_test83_88 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test79_81 writeloop exited" func=writeloop id=gateway02_test79_81 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test80_80 writeloop exited" func=writeloop id=gateway02_test80_80 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test82_85 writeloop exited" func=writeloop id=gateway02_test82_85 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test85_84 writeloop exited" func=writeloop id=gateway02_test85_84 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test66_67 writeloop exited" func=writeloop id=gateway02_test66_67 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test86_86 writeloop exited" func=writeloop id=gateway02_test86_86 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test87_87 writeloop exited" func=writeloop id=gateway02_test87_87 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test88_89 writeloop exited" func=writeloop id=gateway02_test88_89 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test89_90 writeloop exited" func=writeloop id=gateway02_test89_90 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test90_92 writeloop exited" func=writeloop id=gateway02_test90_92 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test91_91 writeloop exited" func=writeloop id=gateway02_test91_91 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test92_93 writeloop exited" func=writeloop id=gateway02_test92_93 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test93_95 writeloop exited" func=writeloop id=gateway02_test93_95 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test94_94 writeloop exited" func=writeloop id=gateway02_test94_94 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test95_101 writeloop exited" func=writeloop id=gateway02_test95_101 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test96_97 writeloop exited" func=writeloop id=gateway02_test96_97 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test97_100 writeloop exited" func=writeloop id=gateway02_test97_100 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test98_96 writeloop exited" func=writeloop id=gateway02_test98_96 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test99_99 writeloop exited" func=writeloop id=gateway02_test99_99 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test100_98 writeloop exited" func=writeloop id=gateway02_test100_98 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="channel gateway02_test63_64 writeloop exited" func=writeloop id=gateway02_test63_64 module=ChannelImpl
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test7_9] header:command:\"login.signout\"  channelID:\"gateway02_test7_9\"  sequence:103  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test9_2] header:command:\"login.signout\"  channelID:\"gateway02_test9_2\"  sequence:105  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test71_72] header:command:\"login.signout\"  channelID:\"gateway02_test71_72\"  sequence:110  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test75_76] header:command:\"login.signout\"  channelID:\"gateway02_test75_76\"  sequence:111  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test68_69] header:command:\"login.signout\"  channelID:\"gateway02_test68_69\"  sequence:112  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test38_39] header:command:\"login.signout\"  channelID:\"gateway02_test38_39\"  sequence:108  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test46_47] header:command:\"login.signout\"  channelID:\"gateway02_test46_47\"  sequence:113  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test56_56] header:command:\"login.signout\"  channelID:\"gateway02_test56_56\"  sequence:114  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test35_35] header:command:\"login.signout\"  channelID:\"gateway02_test35_35\"  sequence:115  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test28_28] header:command:\"login.signout\"  channelID:\"gateway02_test28_28\"  sequence:116  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test27_30] header:command:\"login.signout\"  channelID:\"gateway02_test27_30\"  sequence:117  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test26_27] header:command:\"login.signout\"  channelID:\"gateway02_test26_27\"  sequence:118  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test76_77] header:command:\"login.signout\"  channelID:\"gateway02_test76_77\"  sequence:119  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test62_63] header:command:\"login.signout\"  channelID:\"gateway02_test62_63\"  sequence:120  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test39_40] header:command:\"login.signout\"  channelID:\"gateway02_test39_40\"  sequence:121  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test58_58] header:command:\"login.signout\"  channelID:\"gateway02_test58_58\"  sequence:122  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test20_20] header:command:\"login.signout\"  channelID:\"gateway02_test20_20\"  sequence:123  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test33_33] header:command:\"login.signout\"  channelID:\"gateway02_test33_33\"  sequence:125  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test23_24] header:command:\"login.signout\"  channelID:\"gateway02_test23_24\"  sequence:126  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test32_34] header:command:\"login.signout\"  channelID:\"gateway02_test32_34\"  sequence:124  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test12_13] header:command:\"login.signout\"  channelID:\"gateway02_test12_13\"  sequence:127  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test8_3] header:command:\"login.signout\"  channelID:\"gateway02_test8_3\"  sequence:129  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test21_23] header:command:\"login.signout\"  channelID:\"gateway02_test21_23\"  sequence:138  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test4_5] header:command:\"login.signout\"  channelID:\"gateway02_test4_5\"  sequence:131  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test34_36] header:command:\"login.signout\"  channelID:\"gateway02_test34_36\"  sequence:145  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test17_17] header:command:\"login.signout\"  channelID:\"gateway02_test17_17\"  sequence:140  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test14_15] header:command:\"login.signout\"  channelID:\"gateway02_test14_15\"  sequence:128  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test30_31] header:command:\"login.signout\"  channelID:\"gateway02_test30_31\"  sequence:147  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test18_21] header:command:\"login.signout\"  channelID:\"gateway02_test18_21\"  sequence:142  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test24_25] header:command:\"login.signout\"  channelID:\"gateway02_test24_25\"  sequence:133  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test72_73] header:command:\"login.signout\"  channelID:\"gateway02_test72_73\"  sequence:148  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test40_41] header:command:\"login.signout\"  channelID:\"gateway02_test40_41\"  sequence:153  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test52_53] header:command:\"login.signout\"  channelID:\"gateway02_test52_53\"  sequence:161  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test11_12] header:command:\"login.signout\"  channelID:\"gateway02_test11_12\"  sequence:136  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test6_4] header:command:\"login.signout\"  channelID:\"gateway02_test6_4\"  sequence:130  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test29_29] header:command:\"login.signout\"  channelID:\"gateway02_test29_29\"  sequence:141  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test83_88] header:command:\"login.signout\"  channelID:\"gateway02_test83_88\"  sequence:179  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test45_46] header:command:\"login.signout\"  channelID:\"gateway02_test45_46\"  sequence:155  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test19_19] header:command:\"login.signout\"  channelID:\"gateway02_test19_19\"  sequence:143  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test2_7] header:command:\"login.signout\"  channelID:\"gateway02_test2_7\"  sequence:144  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test53_55] header:command:\"login.signout\"  channelID:\"gateway02_test53_55\"  sequence:163  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test25_26] header:command:\"login.signout\"  channelID:\"gateway02_test25_26\"  sequence:146  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test16_16] header:command:\"login.signout\"  channelID:\"gateway02_test16_16\"  sequence:139  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test5_8] header:command:\"login.signout\"  channelID:\"gateway02_test5_8\"  sequence:135  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test22_22] header:command:\"login.signout\"  channelID:\"gateway02_test22_22\"  sequence:137  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test42_44] header:command:\"login.signout\"  channelID:\"gateway02_test42_44\"  sequence:152  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test13_14] header:command:\"login.signout\"  channelID:\"gateway02_test13_14\"  sequence:132  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test10_11] header:command:\"login.signout\"  channelID:\"gateway02_test10_11\"  sequence:134  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test44_45] header:command:\"login.signout\"  channelID:\"gateway02_test44_45\"  sequence:149  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test43_43] header:command:\"login.signout\"  channelID:\"gateway02_test43_43\"  sequence:151  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test81_82] header:command:\"login.signout\"  channelID:\"gateway02_test81_82\"  sequence:174  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test55_57] header:command:\"login.signout\"  channelID:\"gateway02_test55_57\"  sequence:154  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test85_84] header:command:\"login.signout\"  channelID:\"gateway02_test85_84\"  sequence:185  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test48_49] header:command:\"login.signout\"  channelID:\"gateway02_test48_49\"  sequence:157  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test47_48] header:command:\"login.signout\"  channelID:\"gateway02_test47_48\"  sequence:156  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test49_50] header:command:\"login.signout\"  channelID:\"gateway02_test49_50\"  sequence:158  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test50_51] header:command:\"login.signout\"  channelID:\"gateway02_test50_51\"  sequence:159  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test51_52] header:command:\"login.signout\"  channelID:\"gateway02_test51_52\"  sequence:160  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test15_18] header:command:\"login.signout\"  channelID:\"gateway02_test15_18\"  sequence:162  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test54_54] header:command:\"login.signout\"  channelID:\"gateway02_test54_54\"  sequence:164  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test37_38] header:command:\"login.signout\"  channelID:\"gateway02_test37_38\"  sequence:165  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test61_62] header:command:\"login.signout\"  channelID:\"gateway02_test61_62\"  sequence:166  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test59_60] header:command:\"login.signout\"  channelID:\"gateway02_test59_60\"  sequence:167  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test41_42] header:command:\"login.signout\"  channelID:\"gateway02_test41_42\"  sequence:150  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test91_91] header:command:\"login.signout\"  channelID:\"gateway02_test91_91\"  sequence:191  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test64_65] header:command:\"login.signout\"  channelID:\"gateway02_test64_65\"  sequence:170  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test57_59] header:command:\"login.signout\"  channelID:\"gateway02_test57_59\"  sequence:168  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test74_75] header:command:\"login.signout\"  channelID:\"gateway02_test74_75\"  sequence:178  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test65_66] header:command:\"login.signout\"  channelID:\"gateway02_test65_66\"  sequence:171  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test77_78] header:command:\"login.signout\"  channelID:\"gateway02_test77_78\"  sequence:172  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test69_70] header:command:\"login.signout\"  channelID:\"gateway02_test69_70\"  sequence:175  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test67_68] header:command:\"login.signout\"  channelID:\"gateway02_test67_68\"  sequence:173  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test70_71] header:command:\"login.signout\"  channelID:\"gateway02_test70_71\"  sequence:176  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test84_83] header:command:\"login.signout\"  channelID:\"gateway02_test84_83\"  sequence:182  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test73_74] header:command:\"login.signout\"  channelID:\"gateway02_test73_74\"  sequence:177  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test80_80] header:command:\"login.signout\"  channelID:\"gateway02_test80_80\"  sequence:181  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test78_79] header:command:\"login.signout\"  channelID:\"gateway02_test78_79\"  sequence:180  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test82_85] header:command:\"login.signout\"  channelID:\"gateway02_test82_85\"  sequence:183  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test79_81] header:command:\"login.signout\"  channelID:\"gateway02_test79_81\"  sequence:184  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test66_67] header:command:\"login.signout\"  channelID:\"gateway02_test66_67\"  sequence:169  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test86_86] header:command:\"login.signout\"  channelID:\"gateway02_test86_86\"  sequence:186  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test87_87] header:command:\"login.signout\"  channelID:\"gateway02_test87_87\"  sequence:187  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test88_89] header:command:\"login.signout\"  channelID:\"gateway02_test88_89\"  sequence:188  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test89_90] header:command:\"login.signout\"  channelID:\"gateway02_test89_90\"  sequence:189  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test90_92] header:command:\"login.signout\"  channelID:\"gateway02_test90_92\"  sequence:190  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test100_98] header:command:\"login.signout\"  channelID:\"gateway02_test100_98\"  sequence:200  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test92_93] header:command:\"login.signout\"  channelID:\"gateway02_test92_93\"  sequence:192  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test93_95] header:command:\"login.signout\"  channelID:\"gateway02_test93_95\"  sequence:193  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test94_94] header:command:\"login.signout\"  channelID:\"gateway02_test94_94\"  sequence:194  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test95_101] header:command:\"login.signout\"  channelID:\"gateway02_test95_101\"  sequence:195  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test96_97] header:command:\"login.signout\"  channelID:\"gateway02_test96_97\"  sequence:196  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test97_100] header:command:\"login.signout\"  channelID:\"gateway02_test97_100\"  sequence:197  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test98_96] header:command:\"login.signout\"  channelID:\"gateway02_test98_96\"  sequence:198  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test99_99] header:command:\"login.signout\"  channelID:\"gateway02_test99_99\"  sequence:199  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T02:52:27+08:00" level=debug msg="Push to [gateway02_test63_64] header:command:\"login.signout\"  channelID:\"gateway02_test63_64\"  sequence:201  flag:Response body:0bits" module=container
+time="2024-08-15T02:52:27+08:00" level=error msg="channel no found" module=container
+time="2024-08-15T03:02:21+08:00" level=info msg="exit signal: interrupt" module=container
+time="2024-08-15T03:02:21+08:00" level=info msg=shutdown id=gateway02 module=websocket.Server
+time="2024-08-15T03:02:21+08:00" level=info msg=shutdown module=container
+time="2024-08-15T03:02:37+08:00" level=info msg="srv gateway02:wgateway - deps map[chat:{}]" func=Init module=container
+time="2024-08-15T03:02:37+08:00" level=info msg="health check:http://localhost:8003/health"
+time="2024-08-15T03:02:37+08:00" level=info msg=started func=Start id=gateway02 listen=":8002" module=websocket.Server
+time="2024-08-15T03:02:37+08:00" level=debug msg="load service: [], meta:&{1648  0s true 7.5464ms false true 0s allow}"
+time="2024-08-15T03:03:13+08:00" level=debug msg="load service: [Id:chat01,Name:chat,Address:localhost,Port:8005,Ns:,Tags:[server],Meta:map[protocol:tcp]], meta:&{1655  0s true 36.4027799s false false 0s allow}"
+time="2024-08-15T03:03:13+08:00" level=info msg="Watch a new services: Id:chat01,Name:chat,Address:localhost,Port:8005,Ns:,Tags:[server],Meta:map[protocol:tcp]" func=connectToService module=container
+time="2024-08-15T03:03:13+08:00" level=info msg="send req ServiceID:\"gateway02\""
+time="2024-08-15T03:03:13+08:00" level=info msg="readLoop started of chat01 chat" func=readLoop module=container

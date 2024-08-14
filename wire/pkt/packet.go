@@ -136,24 +136,23 @@ func (p *LogicPkt) AddStringMeta(key, value string) {
 	})
 }
 
-func (p *LogicPkt) GetMeta(key string) (any, bool) {
-	for _, meta := range p.Meta {
-		if meta.Key == key {
-			switch meta.Type {
+// GetMeta extra value
+func (p *LogicPkt) GetMeta(key string) (interface{}, bool) {
+	return FindMeta(p.Meta, key)
+}
+
+func FindMeta(meta []*Meta, key string) (interface{}, bool) {
+	for _, m := range meta {
+		if m.Key == key {
+			switch m.Type {
 			case MetaType_int:
-				v, err := strconv.Atoi(meta.Value)
-				if err != nil {
-					return nil, false
-				}
+				v, _ := strconv.Atoi(m.Value)
 				return v, true
 			case MetaType_float:
-				v, err := strconv.ParseFloat(meta.Value, 64)
-				if err != nil {
-					return nil, false
-				}
+				v, _ := strconv.ParseFloat(m.Value, 64)
 				return v, true
 			}
-			return meta.Value, true
+			return m.Value, true
 		}
 	}
 	return nil, false

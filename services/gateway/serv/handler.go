@@ -3,6 +3,7 @@ package serv
 import (
 	"bytes"
 	cim "cirno-im"
+	"cirno-im/constants"
 	"cirno-im/container"
 	"cirno-im/logger"
 	"cirno-im/wire"
@@ -20,9 +21,10 @@ var log = logger.WithFields(logger.Fields{
 
 type Handler struct {
 	ServiceID string
+	AppSecret string
 }
 
-func (h *Handler) Accept(conn cim.Conn, timeout time.Duration) (string, error) {
+func (h *Handler) Accept(conn cim.Conn, timeout time.Duration) (string, cim.Meta, error) {
 	log := logger.WithFields(logger.Fields{
 		"ServiceID": h.ServiceID,
 		"module":    "Handler",
@@ -31,16 +33,16 @@ func (h *Handler) Accept(conn cim.Conn, timeout time.Duration) (string, error) {
 	log.Infoln("enter")
 	//1.读取登录包
 	if err := conn.SetReadDeadline(time.Now().Add(timeout)); err != nil {
-		return "", err
+		return "", nil, err
 	}
 	frame, err := conn.ReadFrame()
 	if err != nil {
-		return "", err
+		return "", nil, err
 	}
 	buffer := bytes.NewBuffer(frame.GetPayload())
 	req, err := pkt.MustReadLogicPkt(buffer)
 	if err != nil {
-		return "", err
+		return "", nil, err
 	}
 	//2.需要是登录包
 	if req.Command != wire.CommandLoginSignIn {
@@ -50,14 +52,14 @@ func (h *Handler) Accept(conn cim.Conn, timeout time.Duration) (string, error) {
 		if err != nil {
 			log.Errorln(err)
 		}
-		return "", fmt.Errorf("must be a invalidCommand command")
+		return "", nil, fmt.Errorf("must be a invalidCommand command")
 	}
 
 	//3.反序列化body
 	var login pkt.LoginRequest
 	err = req.ReadBody(&login)
 	if err != nil {
-		return "", err
+		return "", nil, err
 	}
 	//4.使用默认的DefaultSecret 解析token
 	tk, err := token.Parse(token.DefaultSecret, login.Token)
@@ -68,7 +70,7 @@ func (h *Handler) Accept(conn cim.Conn, timeout time.Duration) (string, error) {
 		if err != nil {
 			log.Errorln(err)
 		}
-		return "", err
+		return "", nil, err
 	}
 	//5.生成全局唯一的ChannelID
 	channelID := generateChannelID(h.ServiceID, tk.Account)
@@ -85,9 +87,9 @@ func (h *Handler) Accept(conn cim.Conn, timeout time.Duration) (string, error) {
 	//6.login转发给Login服务
 	err = container.Forward(wire.SNLogin, req)
 	if err != nil {
-		return "", err
+		return "", nil, err
 	}
-	return channelID, nil
+	return channelID, nil, nil
 }
 
 func (h *Handler) Receive(agent cim.Agent, payload []byte) {
@@ -108,6 +110,16 @@ func (h *Handler) Receive(agent cim.Agent, payload []byte) {
 	}
 	if logicPkt, ok := packet.(*pkt.LogicPkt); ok {
 		logicPkt.ChannelID = agent.ID()
+
+		messageInTotal.WithLabelValues(h.ServiceID, wire.SNTGateway, logicPkt.Command).Inc()
+		messageInFlowBytes.WithLabelValues(h.ServiceID, wire.SNTGateway, logicPkt.Command).Add(float64(len(payload)))
+
+		// 把meta注入到header中
+		if agent.GetMetadata() != nil {
+			logicPkt.AddStringMeta(constants.MetaKeyApp, agent.GetMetadata()[constants.MetaKeyApp])
+			logicPkt.AddStringMeta(constants.MetaKeyAccount, agent.GetMetadata()[constants.MetaKeyAccount])
+		}
+
 		err := container.Forward(logicPkt.ServiceName(), logicPkt)
 		if err != nil {
 			logger.WithFields(logger.Fields{

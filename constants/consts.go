@@ -14,3 +14,8 @@ const (
 	DefaultMessageReadPool = 5000
 	DefaultConnectionPool  = 5000
 )
+
+const (
+	MetaKeyApp     = "app"
+	MetaKeyAccount = "account"
+)

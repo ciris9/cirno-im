@@ -1,8 +1,13 @@
-ServiceID: gate01
-ServiceName: "wgateway"
-Listen: ":8000"
-PublicAddress: "localhost"
-PublicPort: 8000
+ServiceID: gateway02
+ServiceName: wgateway
+Listen: ":8002"
+MonitorPort: 8003
+PublicAddress: localhost
+PublicPort: 8002
 Tags:
-  - gate
+  - IDC:HZ_ALI
+Domain: ws://kingimcloud1.com
 ConsulURL: localhost:8500
+AppSecret: ""
+MessageGPool: 5000
+ConnectionGPool: 15000

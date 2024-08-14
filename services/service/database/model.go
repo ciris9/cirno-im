@@ -1,6 +1,7 @@
 package database
 
 import (
+	"gorm.io/gorm"
 	"time"
 )
 
@@ -8,9 +9,10 @@ import (
 // create database cim_message default character set utf8mb4 collate utf8mb4_unicode_ci;
 
 type Model struct {
-	ID        int64 `gorm:"primarykey"`
+	ID        int64 `gorm:"primaryKey"`
 	CreatedAt time.Time
 	UpdatedAt time.Time
+	DeletedAt gorm.DeletedAt `gorm:"index"`
 }
 
 type MessageIndex struct {

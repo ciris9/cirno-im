@@ -1,0 +1,16 @@
+time="2024-08-15T02:29:29+08:00" level=info msg="exit signal: interrupt" module=container
+time="2024-08-15T02:29:29+08:00" level=info msg=shutdown id=gateway01 module=websocket.Server
+time="2024-08-15T02:29:29+08:00" level=info msg=shutdown module=container
+time="2024-08-15T02:29:32+08:00" level=info msg="exit signal: interrupt" module=container
+time="2024-08-15T02:29:32+08:00" level=info msg=shutdown id=gateway02 module=websocket.Server
+time="2024-08-15T02:29:32+08:00" level=debug msg="load service: [], meta:&{1518  0s true 2h47m37.6586925s false false 0s allow}"
+time="2024-08-15T02:29:32+08:00" level=info msg="watch chat stopped"
+time="2024-08-15T02:29:32+08:00" level=info msg=shutdown module=container
+time="2024-08-15T02:30:05+08:00" level=info msg="srv gateway02:wgateway - deps map[chat:{}]" func=Init module=container
+time="2024-08-15T02:30:05+08:00" level=info msg="health check:http://localhost:8003/health"
+time="2024-08-15T02:30:05+08:00" level=info msg=started func=Start id=gateway02 listen=":8002" module=websocket.Server
+time="2024-08-15T02:30:05+08:00" level=debug msg="load service: [], meta:&{1518  0s true 10.5188ms false true 0s allow}"
+time="2024-08-15T02:50:07+08:00" level=debug msg="load service: [Id:chat01,Name:chat,Address:localhost,Port:8005,Ns:,Tags:[server],Meta:map[protocol:tcp]], meta:&{1599  0s true 20m1.9250963s false false 0s allow}"
+time="2024-08-15T02:50:07+08:00" level=info msg="Watch a new services: Id:chat01,Name:chat,Address:localhost,Port:8005,Ns:,Tags:[server],Meta:map[protocol:tcp]" func=connectToService module=container
+time="2024-08-15T02:50:07+08:00" level=info msg="send req ServiceID:\"gateway02\""
+time="2024-08-15T02:50:07+08:00" level=info msg="readLoop started of chat01 chat" func=readLoop module=container

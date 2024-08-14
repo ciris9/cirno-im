@@ -53,19 +53,19 @@ func NewConnWithRW(conn net.Conn, rd *bufio.Reader, wr *bufio.Writer) *WsConn {
 		wr:   wr,
 	}
 }
-
 func (c *WsConn) ReadFrame() (cim.Frame, error) {
-	f, err := ws.ReadFrame(c.Conn)
+	f, err := ws.ReadFrame(c.rd)
 	if err != nil {
 		return nil, err
 	}
-	return &Frame{f}, nil
+	return &Frame{raw: f}, nil
 }
+
 func (c *WsConn) WriteFrame(code cim.OpCode, payload []byte) error {
 	f := ws.NewFrame(ws.OpCode(code), true, payload)
-	return ws.WriteFrame(c.Conn, f)
+	return ws.WriteFrame(c.wr, f)
 }
 
 func (c *WsConn) Flush() error {
-	return nil
+	return c.wr.Flush()
 }

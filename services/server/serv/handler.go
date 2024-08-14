@@ -46,22 +46,22 @@ func NewServHandler(r *cim.Router, cache cim.SessionStorage) *ServHandler {
 	}
 }
 
-func (h *ServHandler) Accept(conn cim.Conn, timeout time.Duration) (string, error) {
+func (h *ServHandler) Accept(conn cim.Conn, timeout time.Duration) (string, cim.Meta, error) {
 	log.Infoln("enter")
 	err := conn.SetReadDeadline(time.Now().Add(timeout))
 	if err != nil {
-		return "", err
+		return "", nil, err
 	}
 	frame, err := conn.ReadFrame()
 	if err != nil {
-		return "", err
+		return "", nil, err
 	}
 	var req pkt.InnerHandshakeRequest
 	if err := proto.Unmarshal(frame.GetPayload(), &req); err != nil {
-		return "", err
+		return "", nil, err
 	}
 	log.Info("Accept -- ", req.ServiceID)
-	return req.ServiceID, nil
+	return req.ServiceID, nil, nil
 }
 
 func (h *ServHandler) Receive(agent cim.Agent, payload []byte) {

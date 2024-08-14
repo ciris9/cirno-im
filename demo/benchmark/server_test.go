@@ -3,7 +3,12 @@ package benchmark
 import (
 	cim "cirno-im"
 	"cirno-im/constants"
+	"cirno-im/services/router/apis"
 	"fmt"
+	"github.com/go-resty/resty/v2"
+	"github.com/segmentio/ksuid"
+	"github.com/stretchr/testify/assert"
+	"net/http"
 	"strings"
 	"sync"
 	"testing"
@@ -29,7 +34,7 @@ func Test_Parallel(t *testing.T) {
 	for i := 0; i < count; i++ {
 		idx := i
 		_ = gpool.Submit(func() {
-			cli := websocket.NewClient(fmt.Sprintf("test_%v", idx), "client", nil, websocket.ClientOptions{
+			cli := websocket.NewClient(fmt.Sprintf("test_%v", idx), "client", websocket.ClientOptions{
 				Heartbeat: constants.DefaultHearBeat,
 			})
 			// set dialer
@@ -57,7 +62,7 @@ func Test_Parallel(t *testing.T) {
 
 func Test_Message(t *testing.T) {
 	const count = 1000 * 100
-	cli := websocket.NewClient(fmt.Sprintf("test_%v", 1), "client", nil, websocket.ClientOptions{
+	cli := websocket.NewClient(fmt.Sprintf("test_%v", 1), "client", websocket.ClientOptions{
 		Heartbeat: constants.DefaultHearBeat,
 	})
 	// set dialer
@@ -92,4 +97,26 @@ func Test_Message(t *testing.T) {
 	}
 
 	t.Logf("message %d cost %v", count, time.Since(t0))
+}
+
+func Test_Lookup(t *testing.T) {
+	cli := resty.New()
+	cli.SetHeader("Content-Type", "application/json")
+
+	domains := make(map[string]int)
+	for i := 0; i < 1000; i++ {
+		url := fmt.Sprintf("http://localhost:8100/api/lookup/%s", ksuid.New().String())
+
+		var res apis.LookUpResp
+		resp, err := cli.R().SetResult(&res).Get(url)
+		assert.Equal(t, http.StatusOK, resp.StatusCode())
+		assert.Nil(t, err)
+		if len(res.Domains) > 0 {
+			domain := res.Domains[0]
+			domains[domain]++
+		}
+	}
+	for domain, hit := range domains {
+		fmt.Printf("domain: %s ;hit count: %d\n", domain, hit)
+	}
 }

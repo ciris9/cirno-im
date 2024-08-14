@@ -22,11 +22,11 @@ func (c *ClientDemo) Start(userID, protocol, addr string) {
 
 	// step1: 初始化客户端
 	if protocol == "ws" {
-		cli = websocket.NewClient(userID, "client", map[string]string{}, websocket.ClientOptions{})
+		cli = websocket.NewClient(userID, "client", websocket.ClientOptions{})
 		// set dialer
 		cli.SetDialer(&WebsocketDialer{})
 	} else if protocol == "tcp" {
-		cli = tcp.NewClient("test1", "client", map[string]string{}, tcp.ClientOptions{})
+		cli = tcp.NewClient("test1", "client", tcp.ClientOptions{})
 		cli.SetDialer(&TCPDialer{})
 	}
 

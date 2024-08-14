@@ -1,0 +1,5 @@
+time="2024-08-15T02:50:07+08:00" level=info msg="srv chat01:chat - deps map[]" func=Init module=container
+time="2024-08-15T02:50:07+08:00" level=info msg=started func=Start id=chat01 listen=":8005" module=tcp.Server
+time="2024-08-15T02:50:07+08:00" level=info msg=enter pkg=serv services=chat
+time="2024-08-15T02:50:07+08:00" level=info msg="Accept -- gateway02" pkg=serv services=chat
+time="2024-08-15T02:50:07+08:00" level=info msg="accept channel - ID: gateway02 RemoteAddr: [::1]:49356"

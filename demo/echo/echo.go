@@ -34,7 +34,7 @@ func NewCmd(ctx context.Context) *cobra.Command {
 }
 
 func run(ctx context.Context, opts *StartOptions) error {
-	cli := websocket.NewClient("test1", "echo", nil, websocket.ClientOptions{
+	cli := websocket.NewClient("test1", "echo", websocket.ClientOptions{
 		Heartbeat: time.Second * 30,
 		ReadWait:  time.Minute * 3,
 		WriteWait: time.Second * 10,

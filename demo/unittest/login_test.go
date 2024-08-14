@@ -11,7 +11,7 @@ import (
 )
 
 func login(account string) (cim.Client, error) {
-	cli := websocket.NewClient(account, "unittest", nil, websocket.ClientOptions{})
+	cli := websocket.NewClient(account, "unittest", websocket.ClientOptions{})
 
 	cli.SetDialer(&dialer.ClientDialer{})
 	err := cli.Connect("ws://localhost:8000")

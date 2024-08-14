@@ -10,22 +10,28 @@ import (
 
 // Config Config
 type Config struct {
-	ServiceID     string   `envconfig:"serviceId"`
-	ServiceName   string   `envconfig:"serviceName"`
-	Namespace     string   `envconfig:"namespace"`
-	Listen        string   `envconfig:"listen"`
-	PublicAddress string   `envconfig:"publicAddress"`
-	PublicPort    int      `envconfig:"publicPort"`
-	Tags          []string `envconfig:"tags"`
-	ConsulURL     string   `envconfig:"consulURL"`
+	ServiceID       string   `yaml:"ServiceID"`
+	ServiceName     string   `yaml:"ServiceName"`
+	Listen          string   `yaml:"Listen" `
+	PublicAddress   string   `yaml:"PublicAddress" `
+	PublicPort      int      `yaml:"PublicPort"`
+	Tags            []string `yaml:"Tags"`
+	Domain          string   `yaml:"Domain" `
+	ConsulURL       string   `yaml:"ConsulURL"`
+	MonitorPort     int      `yaml:"MonitorPort" `
+	AppSecret       string   `yaml:"AppSecret"`
+	LogLevel        string   `yaml:"LogLevel" `
+	MessageGPool    int      `yaml:"MessageGPool" default:"10000"`
+	ConnectionGPool int      `yaml:"ConnectionGPool" default:"15000"`
 }
 
 // Init InitConfig
 func Init(file string) (*Config, error) {
 	viper.SetConfigFile(file)
+	viper.SetConfigName("conf")
 	viper.AddConfigPath(".")
 	viper.AddConfigPath("/etc/conf")
-
+	viper.AddConfigPath("F:\\code\\golang\\cirno-im\\services\\gateway")
 	if err := viper.ReadInConfig(); err != nil {
 		return nil, fmt.Errorf("conf file not found: %w", err)
 	}
@@ -39,7 +45,7 @@ func Init(file string) (*Config, error) {
 	if err != nil {
 		return nil, err
 	}
-	logger.Info(config)
+	logger.Infof("%#v", config)
 
 	return &config, nil
 }

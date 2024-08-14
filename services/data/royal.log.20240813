@@ -1,0 +1,1 @@
+time="2024-08-13T21:30:53+08:00" level=error msg="deregister service royal01 err: Put \"http://localhost:8500/v1/agent/service/deregister/royal01\": dial tcp [::1]:8500: connectex: No connection could be made because the target machine actively refused it."

@@ -7,7 +7,7 @@ import (
 )
 
 func Login(wsurl, account string, appSecrets ...string) (cim.Client, error) {
-	cli := websocket.NewClient(account, "unittest", nil, websocket.ClientOptions{})
+	cli := websocket.NewClient(account, "unittest", websocket.ClientOptions{})
 	secret := token.DefaultSecret
 	if len(appSecrets) > 0 {
 		secret = appSecrets[0]

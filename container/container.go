@@ -12,6 +12,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"net/http"
 	"os"
 	"os/signal"
 	"strings"
@@ -47,6 +49,7 @@ type Container struct {
 	selector   Selector
 	dialer     cim.Dialer
 	deps       map[string]struct{}
+	monitor    sync.Once
 }
 
 var log = logger.WithField("module", "container")
@@ -82,8 +85,18 @@ func SetDialer(dialer cim.Dialer) {
 	c.dialer = dialer
 }
 
-func EnableMonitor(listen string) error {
-	return nil
+// EnableMonitor start
+func EnableMonitor(listen string) {
+	c.monitor.Do(func() {
+		go func() {
+			http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+				_, _ = w.Write([]byte("ok"))
+			})
+			// add prometheus metrics
+			http.Handle("/metrics", promhttp.Handler())
+			_ = http.ListenAndServe(listen, nil)
+		}()
+	})
 }
 
 func SetSelector(selector Selector) {
@@ -282,6 +295,7 @@ func pushMessage(packet *pkt.LogicPkt) error {
 	payload := pkt.Marshal(packet)
 	log.Debugf("Push to %v %v", channelIDs, packet)
 	for _, channelID := range channelIDs {
+		messageOutFlowBytes.WithLabelValues(packet.Command).Add(float64(len(payload)))
 		err := c.Srv.Push(channelID, payload)
 		if err != nil {
 			log.Errorln(err)

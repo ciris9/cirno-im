@@ -18,7 +18,7 @@ import (
 	"github.com/segmentio/ksuid"
 )
 
-type Upgrader interface {
+type UpGrader interface {
 	Name() string
 	Upgrade(rawconn net.Conn, rd *bufio.Reader, wr *bufio.Writer) (Conn, error)
 }
@@ -48,7 +48,7 @@ func WithConnectionGPool(val int) ServerOption {
 
 // DefaultServer is a websocket implement of the DefaultServer
 type DefaultServer struct {
-	Upgrader
+	UpGrader
 	listen string
 	ServiceRegistration
 	ChannelMap
@@ -61,7 +61,7 @@ type DefaultServer struct {
 }
 
 // NewServer NewServer
-func NewServer(listen string, service ServiceRegistration, upgrader Upgrader, options ...ServerOption) *DefaultServer {
+func NewServer(listen string, service ServiceRegistration, UpGrader UpGrader, options ...ServerOption) *DefaultServer {
 	defaultOpts := &ServerOptions{
 		Loginwait:       constants.DefaultLoginWait,
 		Readwait:        constants.DefaultReadWait,
@@ -76,7 +76,7 @@ func NewServer(listen string, service ServiceRegistration, upgrader Upgrader, op
 		listen:              listen,
 		ServiceRegistration: service,
 		options:             defaultOpts,
-		Upgrader:            upgrader,
+		UpGrader:            UpGrader,
 		quit:                0,
 	}
 }
@@ -177,7 +177,7 @@ func (s *DefaultServer) connHandler(rawconn net.Conn, gpool *ants.Pool) {
 	channel.Close()
 }
 
-// Shutdown Shutdown
+// ShutDown Shutdown
 func (s *DefaultServer) ShutDown(ctx context.Context) error {
 	log := logger.WithFields(logger.Fields{
 		"module": s.Name(),
@@ -207,7 +207,7 @@ func (s *DefaultServer) ShutDown(ctx context.Context) error {
 	return nil
 }
 
-// string channelID
+// Push string channelID
 // []byte data
 func (s *DefaultServer) Push(id string, data []byte) error {
 	ch, ok := s.ChannelMap.Get(id)
@@ -232,7 +232,7 @@ func (s *DefaultServer) SetStateListener(listener StateListener) {
 	s.StateListener = listener
 }
 
-// SetChannels SetChannels
+// SetChannelMap SetChannelMap
 func (s *DefaultServer) SetChannelMap(channels ChannelMap) {
 	s.ChannelMap = channels
 }

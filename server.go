@@ -59,6 +59,7 @@ type StateListener interface {
 type Agent interface {
 	ID() string
 	Push([]byte) error
+	GetMetadata() Meta
 }
 
 // Conn todo 对net.Conn的二次封装，将读写操作叶枫装进Conn内

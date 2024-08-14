@@ -1,14 +1,14 @@
 package consul
 
 import (
-	cim "cirno-im"
-	"cirno-im/logger"
-	"cirno-im/naming"
 	"errors"
 	"fmt"
 	"sync"
 	"time"
 
+	"cirno-im"
+	"cirno-im/logger"
+	"cirno-im/naming"
 	"github.com/hashicorp/consul/api"
 )
 
@@ -26,8 +26,8 @@ type Watch struct {
 
 type Naming struct {
 	sync.RWMutex
-	cli    *api.Client
-	watchs map[string]*Watch
+	cli     *api.Client
+	watches map[string]*Watch
 }
 
 func NewNaming(consulUrl string) (naming.Naming, error) {
@@ -38,8 +38,8 @@ func NewNaming(consulUrl string) (naming.Naming, error) {
 		return nil, err
 	}
 	naming := &Naming{
-		cli:    cli,
-		watchs: make(map[string]*Watch, 1),
+		cli:     cli,
+		watches: make(map[string]*Watch, 1),
 	}
 
 	return naming, nil
@@ -53,7 +53,7 @@ func (n *Naming) Find(name string, tags ...string) ([]cim.ServiceRegistration, e
 	return services, nil
 }
 
-// refresh services registration
+// refresh service registration
 func (n *Naming) load(name string, waitIndex uint64, tags ...string) ([]cim.ServiceRegistration, *api.QueryMeta, error) {
 	opts := &api.QueryOptions{
 		UseCache:  true,
@@ -65,13 +65,13 @@ func (n *Naming) load(name string, waitIndex uint64, tags ...string) ([]cim.Serv
 		return nil, meta, err
 	}
 
-	services := make([]cim.ServiceRegistration, len(catalogServices))
-	for i, s := range catalogServices {
+	services := make([]cim.ServiceRegistration, 0, len(catalogServices))
+	for _, s := range catalogServices {
 		if s.Checks.AggregatedStatus() != api.HealthPassing {
-			logger.Debugf("load services: id:%s name:%s %s:%d Status:%s", s.ServiceID, s.ServiceName, s.ServiceAddress, s.ServicePort, s.Checks.AggregatedStatus())
+			logger.Debugf("load service: id:%s name:%s %s:%d Status:%s", s.ServiceID, s.ServiceName, s.ServiceAddress, s.ServicePort, s.Checks.AggregatedStatus())
 			continue
 		}
-		services[i] = &naming.DefaultService{
+		services = append(services, &naming.DefaultService{
 			Id:       s.ServiceID,
 			Name:     s.ServiceName,
 			Address:  s.ServiceAddress,
@@ -79,9 +79,9 @@ func (n *Naming) load(name string, waitIndex uint64, tags ...string) ([]cim.Serv
 			Protocol: s.ServiceMeta[KeyProtocol],
 			Tags:     s.ServiceTags,
 			Meta:     s.ServiceMeta,
-		}
+		})
 	}
-	logger.Debugf("load services: %v, meta:%v", services, meta)
+	logger.Debugf("load service: %v, meta:%v", services, meta)
 	return services, meta, nil
 }
 
@@ -98,7 +98,6 @@ func (n *Naming) Register(s cim.ServiceRegistration) error {
 		reg.Meta = make(map[string]string)
 	}
 	reg.Meta[KeyProtocol] = s.GetProtocol()
-
 	// consul健康检查
 	healthURL := s.GetMetadata()[KeyHealthURL]
 	if healthURL != "" {
@@ -109,8 +108,8 @@ func (n *Naming) Register(s cim.ServiceRegistration) error {
 		check.Interval = "10s"
 		check.DeregisterCriticalServiceAfter = "20s"
 		reg.Check = check
+		logger.Info("health check:", healthURL)
 	}
-
 	err := n.cli.Agent().ServiceRegister(reg)
 	return err
 }
@@ -122,7 +121,7 @@ func (n *Naming) Deregister(serviceID string) error {
 func (n *Naming) Subscribe(serviceName string, callback func([]cim.ServiceRegistration)) error {
 	n.Lock()
 	defer n.Unlock()
-	if _, ok := n.watchs[serviceName]; ok {
+	if _, ok := n.watches[serviceName]; ok {
 		return errors.New("serviceName has already been registered")
 	}
 	w := &Watch{
@@ -130,7 +129,7 @@ func (n *Naming) Subscribe(serviceName string, callback func([]cim.ServiceRegist
 		Callback: callback,
 		Quit:     make(chan struct{}, 1),
 	}
-	n.watchs[serviceName] = w
+	n.watches[serviceName] = w
 
 	go n.watch(w)
 	return nil
@@ -139,9 +138,9 @@ func (n *Naming) Subscribe(serviceName string, callback func([]cim.ServiceRegist
 func (n *Naming) Unsubscribe(serviceName string) error {
 	n.Lock()
 	defer n.Unlock()
-	wh, ok := n.watchs[serviceName]
+	wh, ok := n.watches[serviceName]
 
-	delete(n.watchs, serviceName)
+	delete(n.watches, serviceName)
 	if ok {
 		close(wh.Quit)
 	}
@@ -152,7 +151,7 @@ func (n *Naming) watch(wh *Watch) {
 	stopped := false
 
 	var doWatch = func(service string, callback func([]cim.ServiceRegistration)) {
-		services, meta, err := n.load(service, wh.WaitIndex) // <-- blocking untill services has changed
+		services, meta, err := n.load(service, wh.WaitIndex) // <-- blocking until services has changed
 		if err != nil {
 			logger.Warn(err)
 			return

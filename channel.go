@@ -168,4 +168,4 @@ func (ch *ChannelImpl) ReadLoop(lst MessageListener) error {
 	}
 }
 
-func (ch *ChannelImpl) GetMeta() Meta { return ch.meta }
+func (ch *ChannelImpl) GetMetadata() Meta { return ch.meta }

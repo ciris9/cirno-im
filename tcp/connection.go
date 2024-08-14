@@ -50,36 +50,39 @@ func NewConnWithRW(conn net.Conn, rd *bufio.Reader, wr *bufio.Writer) *TcpConn {
 		wr:   wr,
 	}
 }
+
+// ReadFrame ReadFrame
 func (c *TcpConn) ReadFrame() (cim.Frame, error) {
-	opCode, err := endian.ReadUint8(c.Conn)
+	opcode, err := endian.ReadUint8(c.rd)
 	if err != nil {
 		return nil, err
 	}
-	payload, err := endian.ReadBytes(c.Conn)
+	payload, err := endian.ReadBytes(c.rd)
 	if err != nil {
 		return nil, err
 	}
 	return &Frame{
-		OpCode:  cim.OpCode(opCode),
+		OpCode:  cim.OpCode(opcode),
 		Payload: payload,
 	}, nil
 }
 
-func (c *TcpConn) WriteFrame(OpCode cim.OpCode, data []byte) error {
-	return WriteFrame(c.Conn, OpCode, data)
+// WriteFrame WriteFrame
+func (c *TcpConn) WriteFrame(code cim.OpCode, payload []byte) error {
+	return WriteFrame(c.wr, code, payload)
 }
 
+// Flush Flush
 func (c *TcpConn) Flush() error {
-	return nil
+	return c.wr.Flush()
 }
 
-func WriteFrame(w io.Writer, opCode cim.OpCode, payload []byte) error {
-	err := endian.WriteUint8(w, uint8(opCode))
-	if err != nil {
+// WriteFrame write a frame to w
+func WriteFrame(w io.Writer, code cim.OpCode, payload []byte) error {
+	if err := endian.WriteUint8(w, uint8(code)); err != nil {
 		return err
 	}
-	err = endian.WriteBytes(w, payload)
-	if err != nil {
+	if err := endian.WriteBytes(w, payload); err != nil {
 		return err
 	}
 	return nil

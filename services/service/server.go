@@ -112,7 +112,6 @@ func newApp(serviceHandler *handler.ServiceHandler) *iris.Application {
 	app.Get("/health", func(ctx iris.Context) {
 		_, _ = ctx.WriteString("ok")
 	})
-
 	messageApi := app.Party("/api/:app/message")
 	{
 		messageApi.Post("/user", serviceHandler.InsertUserMessage)

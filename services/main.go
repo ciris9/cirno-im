@@ -3,8 +3,12 @@ package main
 import (
 	"cirno-im/services/router"
 	"cirno-im/services/service"
+	"cirno-im/trace"
 	"context"
 	"flag"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/propagation"
+	"log"
 
 	"cirno-im/logger"
 	"cirno-im/services/gateway"
@@ -14,8 +18,17 @@ import (
 
 const version = "v1"
 
+const jaegerTraceProviderAddress = ""
+
 func main() {
 	flag.Parse()
+
+	tp, tpErr := trace.JaegerTraceProvider(jaegerTraceProviderAddress)
+	if tpErr != nil {
+		log.Fatal(tpErr)
+	}
+	otel.SetTracerProvider(tp)
+	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
 
 	root := &cobra.Command{
 		Use:     "cim",

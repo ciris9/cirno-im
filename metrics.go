@@ -6,7 +6,7 @@ import (
 )
 
 var channelTotalGauge = promauto.NewGaugeVec(prometheus.GaugeOpts{
-	Namespace: "kim",
+	Namespace: "cim",
 	Name:      "channel_total",
 	Help:      "网关并发数",
 }, []string{"serviceId", "serviceName"})

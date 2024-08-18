@@ -32,7 +32,7 @@ func (d *ClientDialer) DialAndHandshake(ctx cim.DialerContext) (net.Conn, error)
 	// 2. 直接使用封装的JWT包生成一个token
 	tk, err := token.Generate(d.AppSecret, &token.Token{
 		Account: ctx.Id,
-		App:     "kim",
+		App:     "cim",
 		Exp:     time.Now().AddDate(0, 0, 1).Unix(),
 	})
 	if err != nil {

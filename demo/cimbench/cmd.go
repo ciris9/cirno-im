@@ -20,7 +20,7 @@ type Options struct {
 func NewBenchmarkCmd(ctx context.Context) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "benchmark",
-		Short: "kim benchmark tools",
+		Short: "cim benchmark tools",
 	}
 	var opts = &Options{}
 	cmd.PersistentFlags().StringVarP(&opts.Addr, "address", "a", "ws://localhost:8002", "server address")

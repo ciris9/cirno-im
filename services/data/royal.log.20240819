@@ -1,0 +1,1 @@
+time="2024-08-19T08:03:44+08:00" level=error msg="deregister service royal01 err: Unexpected response code: 404 (Unknown service ID \"royal01\". Ensure that the service ID is passed, not the service name.)"

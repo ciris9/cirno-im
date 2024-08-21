@@ -1,0 +1,3 @@
+time="2024-08-19T08:03:45+08:00" level=info msg="exit signal: terminated" module=container
+time="2024-08-19T08:03:45+08:00" level=info msg=shutdown id=chat01 module=tcp.Server
+time="2024-08-19T08:03:45+08:00" level=info msg=shutdown module=container

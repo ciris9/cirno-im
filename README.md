@@ -37,7 +37,19 @@ gateway与server层之间，会存在大量的消息，而且是长连接的，�
 
 ### RPC
 
+grpc or restful
 
+最终server肯定是要调用后台的service服务的，这里的service服务其实也就相当于rpc服务端。
+
+选择使用grpc，效率高，长连接模型，长连接负载均衡比较复杂，虽然grpc内置了一些负载均衡库，但是也不能很好的解决服务间均衡的问题，service服务很重要，是核心的业务逻辑，绝对不能挂掉，挂了这算是完了。
+
+选择使用restful api，效率略慢，短连接模型，但是基本和开发一个普通的web应用几乎没区别，开发方便，基本就是暴露http api。
+
+
+
+需要说明的是，http协议并不是说就比grpc慢，grpc底层就是基于http2长连接的。如果用iris这种高性能http2框架，序列化协议采用protobuf，性能是不比grpc低的。
+
+最终考虑到开发方便，另外短连接模型也方便负载均衡，就选择使用iris做restful api了。
 
 ## 消息可靠投递
 

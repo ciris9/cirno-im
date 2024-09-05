@@ -16,6 +16,7 @@ import (
 	"cirno-im/tcp"
 	"cirno-im/websocket"
 	"cirno-im/wire"
+
 	"github.com/spf13/cobra"
 )
 
@@ -77,14 +78,14 @@ func RunServerStart(ctx context.Context, opts *ServerStartOptions, version strin
 	srvOpts := []cim.ServerOption{
 		cim.WithConnectionGPool(config.ConnectionGPool), cim.WithMessageGPool(config.MessageGPool),
 	}
-	if opts.protocol == "ws" {
+	switch opts.protocol {
+	case "ws":
 		srv = websocket.NewServer(config.Listen, service, srvOpts...)
-	} else if opts.protocol == "tcp" {
+	case "tcp":
 		srv = tcp.NewServer(config.Listen, service, srvOpts...)
-	} else {
+	default:
 		return fmt.Errorf("protocol %s is not supported", opts.protocol)
 	}
-
 	srv.SetReadWait(time.Minute * 2)
 	srv.SetAcceptor(handler)
 	srv.SetMessageListener(handler)

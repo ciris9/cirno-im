@@ -14,7 +14,7 @@ type ChannelImpl struct {
 	id string
 	Conn
 	meta      Meta
-	writeChan chan []byte
+	writeChan chan []byte 
 	writeWait time.Duration
 	readWait  time.Duration
 	gPool     *ants.Pool
@@ -43,7 +43,7 @@ func NewChannel(id string, meta Meta, conn Conn, gpool *ants.Pool) Channel {
 	}()
 	return ch
 }
-
+ 
 func (ch *ChannelImpl) writeLoop() error {
 	log := logger.WithFields(logger.Fields{
 		"module": "ChannelImpl",

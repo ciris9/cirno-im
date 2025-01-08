@@ -71,7 +71,7 @@ func (h *ChatHandler) DoUserTalk(ctx cim.Context) {
 			Extra:     req.GetExtra(),
 			Sender:    ctx.Session().GetAccount(),
 			SendTime:  sendTime,
-		}); err != nil {
+		}, location); err != nil {
 			responseWithError(ctx, pkt.Status_SystemException, err)
 			return
 		}
